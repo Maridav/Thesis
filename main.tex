@@ -1,0 +1,261 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}   
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm, amsmath, amssymb, pdfpages}
+
+%\usepackage[left=3cm,right=1cm,
+%   top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+
+
+\renewcommand{\proofname}{Доказательство}
+\theoremstyle{plain}
+\newtheorem{thm}{Теорема} %[section], чтобы нумеровать сначала в каждом разделе
+\newtheorem{lm}{Лемма}
+\newtheorem*{st}{Утверждение}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Определение}
+\newtheorem*{ex}{Упр}
+\newtheorem*{cor}{Следствие}
+\newtheorem*{name}{Обозначение}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Замечание}
+
+
+\def\geq{\geqslant}
+\def\ge{\geqslant}
+\def\leq{\leqslant}
+\def\le{\leqslant}
+
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\vol}{vol}
+
+\newcommand{\cuplim}{\bigcup\limits}
+\newcommand{\ilim}{\int\limits}
+\newcommand{\slim}{\sum\limits}
+\newcommand{\maxlim}{\max\limits}
+\newcommand{\suplim}{\sup\limits}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\dm}{\, d\mu_n}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\R^nn}{\mathbb{R}^n}
+%\newcommand{C^1}{\mathbb{C}^1}
+\newcommand{\til}{\widetilde}
+\newcommand{\dd}{\partial}
+\newcommand{\eps}{\varepsilon}
+
+
+
+\begin{document}
+\section{Постановка задачи}
+
+Рассмотрим куб $[0,a]^d$ в $\R^d$, $d \geq 1$, где $a$ --- положительный параметр, который мы будем устремлять к бесконечности. И рассмотрим  случайный набор шаров с центрами в кубе. Этот набор определим так: пусть  центры шаров $\xi_i$ --- случайные величины, распределенные равномерно в $[0,a]^d$, радиусы $R_i$ --- некоторые неотрицательные случайные величины, а количество шаров $N$ --- пуассоновская случайная величина с параметром $\lambda > 1$. 
+
+Обозначим через $B(\xi_i, R_i)$ шар с центром в $\xi_i$ радиуса $R_i$ (пока что мы не фиксируем метрику в $\R^d$).
+Мы будем рассматривать  ``картинку'', образованную этим наборов шаров:
+$$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
+
+Назовем {\it минимальным числом видимых на картинке шаров} такую величину: $$K_a = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_a = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}) \cap [0,a]^d\}.$$
+
+Наша задача --- найти асимптотику оценки вероятности больших отклонений для $K_a$, то есть  $\PP[K_a \geq n]$, при $n$ и $a$ стремящихся к бесконечности. 
+
+\% Тут надо дописать про то, что если а = 1, то есть хорошие результаты. 
+
+При этом будем предполагать, что $a = o(n^{1/d})$.
+
+Заметим, что тривиальная оценка, вытекающая из свойств пуассоновского распределения, такова:
+$$\PP[K_a \geq n] \leq \PP[N\geq n] = \exp((-n\log n + n\log a^d )\cdot(1 + o(1))), \ n\to \infty,$$
+и наша задача --- улучшить эту оценку. Заметим также, что, в силу предположения $a = o(n^{1/d})$, вероятность больших отклонений $K_a$ стремится к нулю. \%И это хорошо.
+
+\% А потом хотим оценить среднюю ошибку дискретизации. 
+
+
+\section{Важная переформулировка}
+
+Рассмотрим следующую аналогичную переформулировку нашей задачи, которая, хоть и менее интуитивна, более приятна для работы. Будем рассматривать единичный куб в $\R^d$ и следующий случайный набор шаров с центрами в нём. Пусть центры шаров $\til{\xi_i}$ равномерно распределены в единичном кубе, радиусы $\til{R_i}$ --- некоторые неотрицательные случайные величины (они связаны с исходными радиусами соотношениями $\til{R_i} = R_i/a$), а количество шаров $\til{N}$ --- пуассоновская случайная величина с параметром $a^d\lambda$.
+
+Тогда наша случайная картинка определяется как $$\til{S_a} = \cuplim_{i=1}^N B(\til{\xi_i}, \til{R_i}) \cap [0,1]^d,$$ а минимальное число видимых шаров: $$\til{K_a} = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , \til{N}\} : \til{S_a} = \cuplim_{l=1}^r B(\til{\xi_{i_l}}, \til{R_{i_l}}) \cap [0,1]^d\}.$$
+
+Задача оценки остается такой же.
+
+\section{Нижние оценки для вероятности больших отклонений}
+
+Будем пользоваться второй переформулировкой (когда размер куба фиксирован) задачи и рассмотрим случай, когда радиусы -- это константа $r/a$, где $a$ -- наш параметр, $r<1$. Это соответствует ситуации, когда размер куба стремится к бесконечности, а радиусы шаров п.н. равны некоторой константе $r$.
+
+\begin{thm}
+Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_1$-норме, и $d\geq 2$. 
+Тогда $$\PP[K_a \geq n] \geq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + n\log a^d\right) (1+o(1))\right), n \to \infty, a\to \infty.$$
+\end{thm}{}
+
+\begin{proof}
+    Рассмотрим набор ячеек: $$\left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{k_m+1/4}{(2n)^{1/(d-1)}}, \dfrac{k_m+3/4}{(2n)^{1/(d-1)}}\right]\right\} \times \left[0, \dfrac{c_1}{n^{1/(d-1)}}\right],$$
+    где $k_m \in \{0, \ldots, \lfloor (2n)^{1/(d-1)}\rfloor-1\}$, $c_1 = 2^{-(2+1/(d-1))}$. 
+    
+    {\it {\bf Важное замечание.}  Раз у нас радиусы уменьшились в $a$ раз, есть соблазн уменьшить и ячейки. Но при этом точность не увеличится, а наоборот. Действительно, уменьшим каждую сторону в $a^\alpha$ раз. В следующих замечаниях (курсивом) я буду показывать, на что это повлияет.}
+    
+    Затем выберем $n$ непересекающихся ячеек $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+    {\it {\bf Замечание.} В случае с изменением размера ячеек их количество будет приблизительно равно $2na^{\alpha(d-1)}$. Из них действительно можно выбрать $n$ различных, если $\alpha \geq 0$.}
+                         
+    Заметим, что событие E влечет событие $K \geq n$. Действительно, пусть выполнено E. Докажем, что тогда в каждом шаре $B(\xi_i, R_1)$ есть точка, не покрытая никаким другим шаром $B(\xi_j, R_1)$. Это будет точка $x_i = \xi_i + (0, \ldots, 0, R_1)$. Заметим, что для достаточно больших $n$ и $a$ эта точка действительно лежит в кубе $[0, 1]^d$. Итак, при $j \not= i$
+    \begin{multline*}
+        \|x_i - \xi_j\|_1 = 
+        |\xi_i^{(d)} + R_1 - \xi_j^{(d)} | + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}| \geq\\
+        \geq R_1 - |\xi_i^{(d)} - \xi_j^{(d)} | + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}| \geq
+        R_1 - \dfrac{c_1}{n^{1/(d-1)}} + \dfrac{1/2}{(2n)^{1/(d-1)}} > R_1.
+    \end{multline*}{}
+    
+    {\it {\bf Следующее замечание.} В случае, если стороны меньше в $a^\alpha$ раз, неравенство также будет выполняться при выбранном выше $c_1$. Степени числа $a$ для разных координат также можно выбрать различными, главное, чтобы они были положительны.
+    }
+    Следовательно, 
+    \begin{multline*}
+        \PP[K_a\geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(\left(\dfrac{1/2}{(2n)^{1/(d-1)}}\right)^{d-1}\cdot \dfrac{c_1}{n^{1/(d-1)}}\right)^n = \\
+        =\exp\left(n\log a^d - a^d\lambda - \left(1+\dfrac{1}{d-1}\right)n\log n + O(n)\right) \geq \\
+        \geq
+        \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + n\log a^d\right) (1+o(1))\right).
+    \end{multline*}{}
+    {\it {\bf Последнее замечание.} В случае измененных ячеек получим еще слагаемое вида $-C(d)n\log a^d < 0$, что только ухудшит нашу оценку.}
+    
+\end{proof}{}
+
+\begin{thm}
+Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_2$-норме, и $d\geq 2$. Тогда $$\PP[K_a \geq n] \geq \exp \left(\left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d}\right) n\log a^d \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
+\end{thm}{}
+
+\begin{proof}
+ Рассмотрим набор ячеек: $$\left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{k_m+1/4}{(2n)^{1/(d-1)}}, \dfrac{k_m+3/4}{(2n)^{1/(d-1)}}\right]\right\} \times \left[0, \dfrac{c_2a}{n^{1/(d-1)}}\right],$$
+    где $k_m \in \{0, \ldots, \lfloor (2n)^{1/(d-1)}\rfloor-1\}$, $c_2 = 2^{-(4+2/(d-1))}$. 
+    
+    {\it {\bf Замечание.}  Здесь ячейки (то есть множители $a$ в них) подобраны так, чтобы оценка получилась оптимальная, как и в предыдущей теореме.}
+    
+    Затем выберем $n$ непересекающихся ячеек $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+    
+                         
+    Заметим, что событие $E$ влечет событие $K_a \geq n$. Действительно, пусть выполнено $E$. Докажем, что тогда в каждом шаре $B(\xi_i, R_1)$ есть точка, не покрытая никаким другим шаром $B(\xi_j, R_1)$. Это будет точка $x_i = \xi_i + (0, \ldots, 0, R_1)$. Заметим, что для достаточно больших $n$ и $a$ эта точка действительно лежит в кубе $[0, 1]^d$. Итак, при $j \not= i$
+    \begin{multline*}
+        \|x_i - \xi_j\|_2 = 
+        |\xi_i^{(d)} + R_1 - \xi_j^{(d)} |^2 + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}|^2 \geq\\
+        \geq R_1^2 + 2R_1|\xi_i^{(d)} - \xi_j^{(d)}| + (\xi_i^{(d)} - \xi_j^{(d)})^2  + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}|^2 \geq \\
+        \geq R_1^2 - 2rc_2n^{-2/(d-1)} + \left(\dfrac{1/2}{(2n)^{1/(d-1)}}\right)^2 \geq R_1^2.
+    \end{multline*}{}
+    
+    
+    Следовательно, 
+    \begin{multline*}
+        \PP[K_a\geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(\left(\dfrac{1/2}{(2n)^{1/(d-1)}}\right)^{d-1}\cdot \dfrac{c_2a}{n^{1/(d-1)}}\right)^n = \\
+        =\exp\left(n\log a^d - a^d\lambda - \left(1+\dfrac{1}{d-1}\right)n\log n + n\log a +  O(n)\right) \geq \\
+        \geq
+        \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d}\right)n\log a^d\right) (1+o(1))\right).
+    \end{multline*}{}
+    
+\end{proof}{}
+
+\begin{thm}
+Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_\infty$-норме, и $d\geq 2$. Тогда $$\PP[K_a \geq n] \geq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + dn\log a \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
+\end{thm}{}
+
+\begin{proof} 
+Зафиксируем $\rho_1, \rho_2$, такие, что $r<\rho_1<\rho_2<1$. Заметим, что тогда $r/a<\rho_1<\rho_2<1$ для любого $a\geq 1$. Далее сделаем все то же самое, что в статье. Рассмотрим гиперплоскость $$H = \left\{x\in[0, 1]^d \colon \slim_{m=1}^dx^{(m)} = d\rho_2, \min\limits_{1\leq m \leq d}x^{(m)}>\rho_1\right\}.$$ 
+Для достаточно малой константы $c_1$ выберем $n$ точек $\beta_1, \ldots, \beta_n$ из $H$, чтобы выполнялось $\|\beta_i - \beta_j\|_1 > c_1n^{1/(d-1)}$ для всех $i\not= j$. Теперь рассмотрим ячейки $V_i = B(\beta_i, c_2n^{-1/(d-1)})$, где $c_2 < c_1/(4d)$. И определим следующее событие $$E = \{N = n\} \cap  \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+Затем показывается, что из события $E$ следует событие $K_a \geq n$. В итоге получаем:
+\begin{multline*}
+    \PP[K_a \geq n] \geq \PP[E] = \dfrac{a^d\lambda}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(c_2n^{-1/(d-1)}\right)^dn = \\
+    =\exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + dn\log a\right)(1+o(1))\right).
+\end{multline*}{}
+\end{proof}{}
+
+\section{Верхние оценки для вероятности больших отклонений}
+
+\begin{thm}
+Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_1$-норме, и $d\geq 2$. 
+Тогда $$\PP[K_a \geq n] \leq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)n\log a^d \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
+\end{thm}{}
+
+\begin{proof}
+{\it Шаг 1. Объединение шаров в группы.} Пусть $$S = \bigcup_{i=1}^{K_a} B(\xi_i, R_1) \cap [0,1]^d$$ обозначает неуменьшаемое представление картинки $S$. Тогда для каждого числа $i\leq K_a$ существует точка $\nu_i\in B(\xi_i, R_1) \cap [0,1]^d$, которая не лежит ни в каком другом шаре $B(\xi_j, R_1), j \not= i$. Зафиксируем такие $\nu_i, i = 1, 2, \ldots K_a$. Обозначим $\Delta_i := \nu_i - \xi_i$.
+
+Объединим шары в группы $J_0, J_1^+, J_1^-, \ldots J_d^+, J_d^-$ следующим образом. Определим $J_0 := \{i \colon \|\Delta_i\|_1 \leq R_1/2\}$. Оценим мощность этого множества. Для любых $i, j \in J_0$ выполнено:
+$$R_1 < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq 
+\|\nu_j - \nu_i\| + \|\Delta_i\| \leq \|\nu_j - \nu_i\| + R_1/2.$$
+То есть $\|\nu_j-\nu_i\|> R_1/2$, а значит, $\#J_0 \leq c_1(R_1)^{-d} = c_1r^{-d}a^d$, где константа $c_1~=~2^d/\vol_d B(0,1).$
+
+Теперь пусть $i\not\in J_0$. Значит, $$\|\Delta_i\|_\infty \geq c_2\|\Delta_i\|_1 > c_2R_1/2,$$ где $c_2$ -- контанта, зависящаятолько от нормы. Поэтому $i$ принадлежит одному из $2d$ множеств вида: $$J_m^+ := \{i\colon \Delta_i^{(m)} > c_2R_1/2\}, \quad J_m^- := \{i\colon \Delta_i^{(m)} < - c_2R_1/2\}.$$
+
+{\it Шаг 2. Оценка расстояний между центрами.} Пусть $\sigma \colon \R^d \to \R^d$ -- проекция, определенная таким образом: $$\sigma x := (x^{(1)}, \ldots x^{(d-1)}, 0).$$ 
+
+\begin{lm}[Lemma 20 из статьи.]
+Пусть $i, j\in J_d^+, \ i\not= j$, и пусть $c_3 := c_2 r/2.$ Тогда $$|\xi_i^{(d)} - \xi_j^{(d)}| \not\in [\|\sigma\xi_i - \sigma\xi_j\|_1, c_3/a].$$
+\end{lm}{}
+\begin{proof}
+См. статью.
+\end{proof}{}
+
+{\it Шаг 3. Подсчет ячеек, содержащих центры шаров.} 
+Зафиксируем большое число $A > 0$ и покроем куб $[0, 1]^d$ следующим набором ячеек: $$V_{\bar k, k_d} := \prod_{m = 1}^d\left[\dfrac{Ak_m}{(na^{-1})^{1/(d-1)}}, \dfrac{A(k_m+1)}{(na^{-1})^{1/(d-1)}}\right],$$
+где $k_m\in \{0, \ldots, \lfloor A^{-1}(na^{-1})^{1/(d-1)}\rfloor\}$ для $1\leq m \leq d$ и мульти-индекса $\bar k := (k_1, \ldots, k_{d-1}).$
+
+Зафиксируем некоторый индекс $\bar k$ и оценим количество ячеек, содержащих центры шаров: $$N(\bar k, d, +):= \#\{k\colon \xi_i\in V_{\bar k, k} \text{ для некоторого } i\in J_d^+\}.$$
+
+Заметим, что если $\xi_i\in V_{\bar k, \kappa_i}$ и $\xi_j\in V_{\bar k, \kappa_j}$ для некоторых $i, j\in J_d^+$, то $$\|\sigma\xi_i - \sigma\xi_j\|_1~\leq~(d-1)A(an^{-1})^{1/(d-1)}.$$ 
+Поэтому по лемме $$|\xi_i^{(d)} - \xi_j^{(d)}| \not\in [(d-1)A(an^{-1})^{1/(d-1)}, c_3/a].$$
+
+{\it {\bf Замечание.} При достаточно больших $a, n$ этот интервал определен (то есть левый конец меньше правого).}
+
+Исходя из этого, разобъем $[0,1]$ на $\lceil ac_3^{-1}\rceil$ частей длины не более $c_3/a$, и заметим, что если $\xi_i^{(d)}, \xi_j^{(d)}$ лежат в одной части, то $|\xi_i^{(d)} - \xi_j^{(d)}| \leq (d-1)A(an^{-1})^{1/(d-1)}$. Поэтому тогда $|\kappa_i - \kappa_j|\leq d$. Отсюда получаем искомую оценку: $$N(\bar k, d, +)\leq d \lceil ac_3^{-1}\rceil =: ac_4.$$
+
+Теперь мы можем получить общее число ячеек, содержащих центры: $$\sum_{\bar k}\sum_{m=1}^d (N(\bar k, m, +) + N(\bar k, m, -))\leq (2d)\cdot(ac_4)\cdot (na^{-1}A^{-(d-1)}) =: \dfrac{c_5 n}{A^{d-1}}.$$
+
+{\it {\bf Замечание.} Размер ячеек специально выбирался так, чтобы общее количество ячеек, содержащих центры, не зависело от $a$. Иначе в финальном рассуждении мы не смогли бы избавиться от громоздкого множителя, взяв достаточно большое $A$. Чтобы все было хорошо (хотя бы с членом $n\log n$ в финальной асимптотике), надо чтобы этот множитель был $O(n)$. Из всех таких степеней $a$ я выбрала ту, которая дает наилучшую оценку.} 
+
+Пусть $\mathcal{U}$ -- семейство всех возможных объединений из $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек. Их количество -- число способов выбрать $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек из $\left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil$. Поэтому можно выписать следующую простую оценку: $$\#\mathcal{U}\leq \exp \left(\dfrac{c_5 n}{A^{d-1}} \log \left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil \right) = \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right).$$ 
+
+Для каждого $U\in \mathcal{U}$ объем можно оценить так: $$\vol_d (U)\leq \dfrac{c_5n}{A^{d-1}}\left(\dfrac{Aa^{1/(d-1)}}{n^{1/(d-1)}}\right)^d = \dfrac{Ac_5a^{d/(d-1)}}{n^{1/(d-1)}}.$$
+
+{\it Шаг 4. Оценка вероятности.} Напомним, что $$K_a = \#J_0 + \#\left(\bigcup_{m=1}^d (J_m^+ \cup J_m^-)\right) =: K^{(0)} + K^{(\pm)}.$$
+Заметим, что для некоторого случайного множества $U\in\mathcal{U}$ выполнено: $$N_U := \#\{i\colon \xi_i\in U\} \geq K^{(\pm)}.$$
+
+Пусть $c_6 := c_1r^{-d}$. Тогда, как мы помним, $K^{(0)}\leq c_6a^d.$
+
+Поэтому, пользуясь тем, что случайная величина $N_U$  имеет распределение Пуассона с математическим ожиданием $a^d\lambda\vol_d(U)$, получаем следующую оценку: 
+\begin{multline*}
+    \PP[K_a\geq n] \leq \PP[K^{(\pm)} \geq n-c_6a^d] \leq \sum_{U\in\mathcal{U}}\PP[N_U \geq n-c_6a^d] \leq
+    \#\mathcal{U}\cdot\max_{U\in\mathcal{U}}\PP[N_U\geq n- c_6a^d] \leq \\
+    \leq  \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right) \left(\dfrac{a^d\lambda\vol_d(U)e}{n-c_6a^d}\right)^{n-c_6a^d} \leq \\
+    \leq 
+    \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right)
+    \left(\dfrac{(a^d\lambda Ac_5a^{d/(d-1)}e)n^{-1/(d-1)}}{n-c_6a^d}\right)^{n-c_6a^d} = \\
+    = \exp \left(\left(\left(\dfrac{c_5d}{(d-1)A^{d-1}} - 1 - \dfrac{1}{d-1}\right)n\log n + 
+    \left(\dfrac{c_5}{(d-1)A^{d-1}} + 1 + \dfrac{1}{d-1}\right)n\log a^d\right)(1+o(1))\right).
+\end{multline*}{}
+Здесь использовался тот факт, что $a^d = o(n)$, а также следующее равенство:
+
+\begin{equation*}
+    n\log (n - c_6a^d) = n\log (n - c_6a^d) - n\log n + n\log n = n\log (1 - c_6a^d/n) + n\log n = n\log n + o(n).
+\end{equation*}{}
+
+Так как $A$ может быть выбрана сколь угодно большой, получаем:
+\begin{equation*}
+    \PP[K_a \geq n] \leq 
+     \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)n\log a^d \right)(1+o(1))\right).
+\end{equation*}{}
+\end{proof}{}
+
+{\it \% Интересно, является какая-нибудь из этих оценок точной?}
+
+\begin{thm}
+Пусть $R_1\equiv \dfrac{c}{a}$ п.н., где $c<1$, шары берутся в $l_2$-норме, и $d\geq 2$. Тогда $$\PP[K_a \geq n] \leq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + (d+2)n\log a \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
+\end{thm}{}
+
+{\it \% Как-то тут совсем все не сходится.}
+
+\begin{proof}
+Аналогично случаю $l_1$, как и в статье. 
+\end{proof}{}
+
+\end{document}
