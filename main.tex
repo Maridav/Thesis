@@ -133,90 +133,108 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 
 
 
-\section{Важная переформулировка}
-
-Рассмотрим следующую аналогичную переформулировку нашей задачи, которая, хоть и менее интуитивна, более приятна для работы. Будем рассматривать единичный куб в $\R^d$ и следующий случайный набор шаров с центрами в нём. Пусть центры шаров $\til{\xi_i}$ независимы и равномерно распределены в единичном кубе, радиусы $\til{R_i}$ --- некоторые независимые одинаково распределенные неотрицательные случайные величины (они связаны с исходными радиусами соотношениями $\til{R_i} = R_i/a$), а количество шаров $\til{N}$ --- пуассоновская случайная величина с параметром $a^d\lambda$. 
-
-Тогда наша случайная картинка определяется как $$\til{S_a} = \cuplim_{i=1}^N B(\til{\xi_i}, \til{R_i}) \cap [0,1]^d,$$ а минимальное число видимых шаров: $$K_a = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , \til{N}\} : \til{S_a} = \cuplim_{l=1}^r B(\til{\xi_{i_l}}, \til{R_{i_l}}) \cap [0,1]^d\}.$$
-
-Задача оценки остается такой же.
+%\section{Важная переформулировка}
+%
+%Рассмотрим следующую аналогичную переформулировку нашей задачи, которая, хоть и менее интуитивна, более приятна для работы. Будем рассматривать единичный куб в $\R^d$ и следующий случайный набор шаров с центрами в нём. Пусть центры шаров $\til{\xi_i}$ независимы и равномерно распределены в единичном кубе, радиусы $\til{R_i}$ --- некоторые независимые одинаково распределенные неотрицательные случайные величины (они связаны с исходными радиусами соотношениями $\til{R_i} = R_i/a$), а количество шаров $\til{N}$ --- пуассоновская случайная величина с параметром $a^d\lambda$. 
+%
+%Тогда наша случайная картинка определяется как $$\til{S_a} = \cuplim_{i=1}^N B(\til{\xi_i}, \til{R_i}) \cap [0,1]^d,$$ а минимальное число видимых шаров: $$K_a = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , \til{N}\} : \til{S_a} = \cuplim_{l=1}^r B(\til{\xi_{i_l}}, \til{R_{i_l}}) \cap [0,1]^d\}.$$
+%
+%Задача оценки остается такой же.
 
 \section{Нижние оценки для вероятности больших уклонений}
 
-Будем пользоваться второй переформулировкой (когда размер куба фиксирован) задачи и рассмотрим случай, когда радиусы -- это константа $r/a$, где $a$ -- наш параметр, $r<1$. Это соответствует ситуации, когда размер куба стремится к бесконечности, а радиусы шаров п.н. равны некоторой константе $r$.
+Рассмотрим случай, когда радиусы -- это константа $r>0$ п.н. 
 
 \begin{thm}
-Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_1$-норме, и $d\geq 2$. 
-Тогда $$\PP[K_a \geq n] \geq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a\right) (1+o(1))\right), n, a\to \infty.$$
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$ и $n \gg a^d$. 
+Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
 \begin{proof}
+Для удобства рассмотрим гомотетию, переводящую куб $[0, a]^d$ в куб $[0,1]^d$. Тогда радиусы уменьшатся в $a$ раз, их количество сохранится.
     Рассмотрим набор ячеек: 
     \begin{multline*}
-        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{1/(d-1)}(k_m+1/4)}{(4n)^{1/(d-1)}}, \dfrac{a^{1/(d-1)}(k_m+3/4)}{(4n)^{1/(d-1)}}\right]\right\}
+        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{1/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{1/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]\right\}
     \times \\
-    \left\{\left[l\left(\dfrac{c_1a^{1/(d-1)}}{n^{1/(d-1)}} +\dfrac{2r}{a}\right) ,  l\left(\dfrac{c_1a^{1/(d-1)}}{n^{1/(d-1)}}+\dfrac{2r}{a}\right) + \dfrac{c_1a^{1/(d-1)}}{n^{1/(d-1)}}  \right]\right\},
+    \left\{\left[l\left(\dfrac{c_1a^{1/(d-1)}}{(rn)^{1/(d-1)}} +\dfrac{2r}{a}\right) ,  l\left(\dfrac{c_1a^{1/(d-1)}}{(rn)^{1/(d-1)}}+\dfrac{2r}{a}\right) + \dfrac{c_1a^{1/(d-1)}}{(rn)^{1/(d-1)}}  \right]\right\},
     \end{multline*}{}
-    где $k_m \in \{0, \ldots, \lfloor (4n/a)^{1/(d-1)}\rfloor-1\}$, $l\in \left\{0, \ldots, \lfloor a/2\rfloor\right\}$, $c_1 = 2^{-(2+2/(d-1))}$. 
+    где $k_m \in \{0, \ldots, \lfloor (8rn/a)^{1/(d-1)}\rfloor-1\}$, $l\in \left\{0, \ldots, \lfloor a/4r\rfloor\right\}$, $c_1 = 2^{-(2+3/(d-1))}$. 
     
     Все эти ячейки лежат в кубе $[0,1]^d$. По первым $d-1$ координатам это очевидно, проверим по последней. Действительно, 
     \begin{equation*}
-        \dfrac{a}{2}\left(\dfrac{c_1a^{1/(d-1)}}{n^{1/(d-1)}}+\dfrac{2r}{a}\right) + \dfrac{c_1a^{1/(d-1)}}{n^{1/(d-1)}} = \dfrac{c_1a^{d/(d-1)}}{2n^{1/(d-1)}} + \dfrac{c_1a^{1/(d-1)}}{n^{1/(d-1)}} + r < 1
+        \dfrac{a}{4r}\left(\dfrac{c_1a^{1/(d-1)}}{(rn)^{1/(d-1)}}+\dfrac{2r}{a}\right) + \dfrac{c_1a^{1/(d-1)}}{(rn)^{1/(d-1)}} = \dfrac{c_1a^{d/(d-1)}}{4r(rn)^{1/(d-1)}} + \dfrac{c_1a^{1/(d-1)}}{(rn)^{1/(d-1)}} + \dfrac{1}{2} < 1
     \end{equation*}{}
     при достаточно больших $a$ и $n$.
     
-    Мы получили порядка $4n/a \cdot a/2 = 2n$ ячеек, поэтому можно выбрать из них $n$ непересекающихся. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
-                         
-    Заметим, что событие $E$ влечет событие $K \geq n$. Действительно, пусть выполнено $E$. Докажем, что тогда в каждом шаре $B(\xi_i, R_1)$ есть точка, не покрытая никаким другим шаром $B(\xi_j, R_1)$. Действительно, если $\xi_i^{(d)}$ и $\xi_j^{(d)}$ лежат в разных интервалах, то расстояние между ними хотя бы $2R_1$, поэтому шары не пересекаются. Рассмотрим случай, когда $\xi_i^{(d)}$ и $\xi_j^{(d)}$ лежат в одном интервале. Пусть точка $x_i = \xi_i + (0, \ldots, 0, R_1)$. Заметим, что для достаточно больших $n$ и $a$ эта точка действительно лежит в кубе $[0, 1]^d$. Итак, при $j \not= i$
+    Заметим, что если центры шаров $B(\xi_i, R_1)$, $B(\xi_j, R_1)$ лежат в разных ``рядах'', то есть $\xi_i^{(d)}$ и $\xi_j^{(d)}$ лежат в разных выбранных нами интервалах, то эти шары не пересекаются, так как расстояние между ``рядами'' хотя бы $2R_1$. Если же центры лежат в одном ``ряду'', то в каждом из шаров есть точка, не покрытая другим шаром. Действительно, рассмотрим точку  $x_i = \xi_i + (0, \ldots, 0, R_1)$. Заметим, что для достаточно больших $n$ и $a$ эта точка действительно лежит в кубе $[0, 1]^d$. Итак, при $j \not= i$
     \begin{multline*}
         \|x_i - \xi_j\|_1 = 
         |\xi_i^{(d)} + R_1 - \xi_j^{(d)} | + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}| \geq\\
         \geq R_1 - |\xi_i^{(d)} - \xi_j^{(d)} | + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}| \geq
-        R_1 - \dfrac{c_1a^{1/(d-1)}}{n^{1/(d-1)}} + \dfrac{1/2\cdot a^{1/(d-1)}}{(4n)^{1/(d-1)}} > R_1.
+        R_1 - \dfrac{c_1a^{1/(d-1)}}{(rn)^{1/(d-1)}} + \dfrac{1/2\cdot a^{1/(d-1)}}{(8rn)^{1/(d-1)}} > R_1.
     \end{multline*}{}
     
+    
+    Мы получили порядка $8rn/a \cdot a/4r = 2n$ ячеек, поэтому можно выбрать из них $n$ непересекающихся. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+                         
+    Заметим, что событие $E$ влечет событие $K \geq n$ в силу свойств выбранных ячеек, показанных выше.
   
     Следовательно, 
     \begin{multline*}
-        \PP[K_a\geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(\left(\dfrac{1/2\cdot a^{1/(d-1)}}{(4n)^{1/(d-1)}}\right)^{d-1}\cdot \dfrac{c_1a^{1/(d-1)}}{n^{1/(d-1)}}\right)^n = \\
-        =\exp\left(dn\log a - a^d\lambda - \left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right) n\log a  + O(n)\right) = \\
-        =
-        \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a\right) (1+o(1))\right).
+        \PP[K_a\geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(\left(\dfrac{1/2\cdot a^{1/(d-1)}}{(8rn)^{1/(d-1)}}\right)^{d-1}\cdot \dfrac{c_1a^{1/(d-1)}}{(rn)^{1/(d-1)}}\right)^n = \\
+        =\exp\left(dn\log a - a^d\lambda - \left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right) n\log a  + O(n)\right) =\\
+        =\exp\left(-\left(1 + \dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)dn\log a + O(n)\right).
     \end{multline*}{}
 
     
 \end{proof}{}
 
 \begin{thm}
-Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_2$-норме, и $d\geq 2$. Тогда $$\PP[K_a \geq n] \geq \exp \left(\left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d}\right) n\log a^d \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$ и $n \gg a^d$. 
+Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
 \begin{proof}
- Рассмотрим набор ячеек: $$\left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{k_m+1/4}{(2n)^{1/(d-1)}}, \dfrac{k_m+3/4}{(2n)^{1/(d-1)}}\right]\right\} \times \left[0, \dfrac{c_2a}{n^{1/(d-1)}}\right],$$
-    где $k_m \in \{0, \ldots, \lfloor (2n)^{1/(d-1)}\rfloor-1\}$, $c_2 = 2^{-(4+2/(d-1))}$. 
-    
-    {\it {\bf Замечание.}  Здесь ячейки (то есть множители $a$ в них) подобраны так, чтобы оценка получилась оптимальная, как и в предыдущей теореме.}
-    
-    Затем выберем $n$ непересекающихся ячеек $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
-    
-                         
-    Заметим, что событие $E$ влечет событие $K_a \geq n$. Действительно, пусть выполнено $E$. Докажем, что тогда в каждом шаре $B(\xi_i, R_1)$ есть точка, не покрытая никаким другим шаром $B(\xi_j, R_1)$. Это будет точка $x_i = \xi_i + (0, \ldots, 0, R_1)$. Заметим, что для достаточно больших $n$ и $a$ эта точка действительно лежит в кубе $[0, 1]^d$. Итак, при $j \not= i$
+
+Для удобства рассмотрим гомотетию, переводящую куб $[0, a]^d$ в куб $[0,1]^d$. Тогда радиусы уменьшатся в $a$ раз, их количество сохранится.
+    Рассмотрим набор ячеек: 
     \begin{multline*}
-        \|x_i - \xi_j\|_2 = 
+        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{1/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{1/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]\right\}
+    \times \\
+    \left\{\left[l\left(\dfrac{c_2a^{1 + 2/(d-1)}}{r(rn)^{2/(d-1)}} +\dfrac{2r}{a}\right) ,  l\left(\dfrac{c_2a^{1 + 2/(d-1)}}{r(rn)^{2/(d-1)}}+\dfrac{2r}{a}\right) + \dfrac{c_2a^{1 +2/(d-1)}}{r(rn)^{2/(d-1)}}  \right]\right\},
+    \end{multline*}{}
+    где $k_m \in \{0, \ldots, \lfloor (8rn/a)^{1/(d-1)}\rfloor-1\}$, $l\in \left\{0, \ldots, \lfloor a/4r\rfloor\right\}$, $c_2 = 2^{-(4+6/(d-1))}$. 
+    
+    Все эти ячейки лежат в кубе $[0,1]^d$. По первым $d-1$ координатам это очевидно, проверим по последней. Действительно, 
+    \begin{equation*}
+        \dfrac{a}{4r}\left(\dfrac{c_2a^{1 + 2/(d-1)}}{r(rn)^{2/(d-1)}}+\dfrac{2r}{a}\right) + \dfrac{c_2a^{1 +2/(d-1)}}{r(rn)^{2/(d-1)}} = \dfrac{c_2a^{2+ 2/(d-1)}}{4r^2(rn)^{2/(d-1)}} + \dfrac{c_2a^{1+2/(d-1)}}{r(rn)^{2/(d-1)}} + \dfrac{1}{2} < 1
+    \end{equation*}{}
+    при достаточно больших $a$ и $n$.
+    
+    Заметим, что если центры шаров $B(\xi_i, R_1)$, $B(\xi_j, R_1)$ лежат в разных ``рядах'', то есть $\xi_i^{(d)}$ и $\xi_j^{(d)}$ лежат в разных выбранных нами интервалах, то эти шары не пересекаются, так как расстояние между ``рядами'' хотя бы $2R_1$. Если же центры лежат в одном ``ряду'', то в каждом из шаров есть точка, не покрытая другим шаром. Действительно, рассмотрим точку  $x_i = \xi_i + (0, \ldots, 0, R_1)$. Заметим, что для достаточно больших $n$ и $a$ эта точка действительно лежит в кубе $[0, 1]^d$. Итак, при $j \not= i$
+        \begin{multline*}
+        \|x_i - \xi_j\|^2_2 = 
         |\xi_i^{(d)} + R_1 - \xi_j^{(d)} |^2 + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}|^2 \geq\\
         \geq R_1^2 + 2R_1|\xi_i^{(d)} - \xi_j^{(d)}| + (\xi_i^{(d)} - \xi_j^{(d)})^2  + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}|^2 \geq \\
-        \geq R_1^2 - 2rc_2n^{-2/(d-1)} + \left(\dfrac{1/2}{(2n)^{1/(d-1)}}\right)^2 \geq R_1^2.
+        \geq R_1^2 - \dfrac{2c_2a^{2/(d-1)}}{(rn)^{2/(d-1)}} + \left(\dfrac{1/2a^{1/(d-1)}}{(8rn)^{1/(d-1)}}\right)^2 \geq R_1^2.
     \end{multline*}{}
     
     
+    Мы получили порядка $8rn/a \cdot a/4r = 2n$ ячеек, поэтому можно выбрать из них $n$ непересекающихся. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+                         
+    Заметим, что событие $E$ влечет событие $K \geq n$ в силу свойств выбранных ячеек, показанных выше.
+  
     Следовательно, 
     \begin{multline*}
-        \PP[K_a\geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(\left(\dfrac{1/2}{(2n)^{1/(d-1)}}\right)^{d-1}\cdot \dfrac{c_2a}{n^{1/(d-1)}}\right)^n = \\
-        =\exp\left(n\log a^d - a^d\lambda - \left(1+\dfrac{1}{d-1}\right)n\log n + n\log a +  O(n)\right) \geq \\
-        \geq
-        \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d}\right)n\log a^d\right) (1+o(1))\right).
+        \PP[K_a\geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n!
+        \cdot \left(\left(\dfrac{1/2\cdot a^{1/(d-1)}}{(8rn)^{1/(d-1)}}\right)^{d-1}\cdot
+        \dfrac{c_2a^{1+ 2/(d-1)}}{r(rn)^{2/(d-1)}}\right)^n = \\
+        =\exp\left(dn\log a - a^d\lambda - \left(1+\dfrac{2}{d-1}\right)n\log n + \left(2+\dfrac{2}{d-1}\right) n\log a  + O(n)\right) = \\
+        =\exp\left(-\left(1+ \dfrac{2}{d-1}\right)n\log n + \left(1 + \dfrac{2}{d-1}\right)dn\log a + O(n)\right).
     \end{multline*}{}
-    
+
+
+
 \end{proof}{}
 
 \begin{thm}
@@ -324,7 +342,7 @@ $$R_1 < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 
 \begin{thebibliography}{} 
 \bibitem{AL}
-Frank Aurzada, Mikhail Lifshits, How complex is a random picture?, Journal of Complexity 53 (2019) 133–161.\\
+F. Aurzada, M. Lifshits, How complex is a random picture? Journal of Complexity 53 (2019) 133–161.\\
 \end{thebibliography}
 
 
