@@ -95,13 +95,15 @@
 \subsection{Постановка задачи}
 
 Пусть $S$  --  случайный элемент некоторого метрического пространства $(X, dist)$.
-Средней ошибкой дискретизации $S$ называется величина $$D^{(q)}(r) := \inf\limits_{\#\mathcal{C}\leq e^r}\E \min\limits_{A\in\mathcal{C}}dist(S, A), \quad r>0.$$
-Скорость ее убывания при  стремлении $r$ к бесконечности характеризует сложность распределения $S$.
-{\it Тут надо добавить ссылки на существующие результаты.}
+Средней ошибкой дискретизации $S$ называется величина  $$D^{(q)}(r) := \inf\limits_{\#\mathcal{C}\leq e^r}\E \min\limits_{A\in\mathcal{C}}dist(S, A), \quad r>0.$$ 
+Скорость ее убывания при  стремлении $r$ к бесконечности характеризует сложность распределения $S$. 
+Основными справочными материалами о дискретизации являются \cite{GL, CT, Kolm}.
+В последние два десятилетия ошибки дискретизации рассматривались, в основном,
+для траекторий случайных процессов, рассматриваемых как случайный элемент функционального пространства, см., например, \cite{ADSV, Der}. 
 
 В работе \cite{AL} рассматривалась ошибка дискретизации для случайного множества,
 рассматриваемого как случайный элемент пространства компактов, снабжённого метрикой Хаусдорфа $d_H(A, B) := \max(\sup_{a\in A}\inf_{b\in B}\|a - b\|, \sup_{b\in B}\inf_{a\in A}\|a - b\|)$.
-В качестве случайного множества была взята стандартная Булева модель (Boolean model), которая
+В качестве случайного множества была взята стандартная Булева модель (Boolean model, см. \cite{CSKM, SW}), которая
 устроена следующим образом.
 
 Рассмотрим куб $[0,a]^d$ в $\R^d$, $d \geq 1$. Рассмотрим  случайный набор шаров с центрами в этом кубе, определенный следующим образом: пусть  центры шаров $\xi_i$ ---  случайные величины, распределенные равномерно в $[0,a]^d$, радиусы $R_i$ --- некоторые одинаково распределенные неотрицательные случайные величины, а количество шаров $N$ --- пуассоновская случайная величина с параметром $a^d\lambda > 0$. Все эти случайные величины независимы. Отметим, что при таком построении множество $(\xi_i)_{i\leq N}$ --- это пуассоновский точечный процесс с интенсивностью $\lambda$.
@@ -194,6 +196,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
+Доказательство теоремы аналогично случаю $\ell_1$-нормы, и отличается только размером ячеек.
 \begin{proof}
     Рассмотрим набор ячеек: 
     \begin{multline*}
@@ -291,7 +294,10 @@ $$R_1 < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 
 {\it {\bf Замечание.} Размер ячеек специально выбирался так, чтобы общее количество ячеек, содержащих центры, не зависело от $a$. Иначе в финальном рассуждении мы не смогли бы избавиться от громоздкого множителя, взяв достаточно большое $A$. Чтобы все было хорошо (хотя бы с членом $n\log n$ в финальной асимптотике), надо чтобы этот множитель был $O(n)$. Из всех таких степеней $a$ я выбрала ту, которая дает наилучшую оценку.} 
 
-Пусть $\mathcal{U}$ -- семейство всех возможных объединений из $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек. Их количество -- число способов выбрать $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек из $\left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil$. Поэтому можно выписать следующую простую оценку: $$\#\mathcal{U}\leq \exp \left(\dfrac{c_5 n}{A^{d-1}} \log \left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil \right) = \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right).$$ 
+Пусть $\mathcal{U}$ -- семейство всех возможных объединений из $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек. Их количество -- число способов выбрать $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек из $\left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil$. Поэтому можно выписать следующую простую оценку: \begin{multline*}
+    \#\mathcal{U}\leq \exp \left(\dfrac{c_5 n}{A^{d-1}} \log \left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil \right) = \\
+    =\exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right).
+\end{multline*}{}
 
 Для каждого $U\in \mathcal{U}$ объем можно оценить так: $$\vol_d (U)\leq \dfrac{c_5n}{A^{d-1}}\left(\dfrac{Aa^{1/(d-1)}}{n^{1/(d-1)}}\right)^d = \dfrac{Ac_5a^{d/(d-1)}}{n^{1/(d-1)}}.$$
 
@@ -306,10 +312,10 @@ $$R_1 < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
     \#\mathcal{U}\cdot\max_{U\in\mathcal{U}}\PP[N_U\geq n- c_6a^d] \leq \\
     \leq  \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right) \left(\dfrac{a^d\lambda\vol_d(U)e}{n-c_6a^d}\right)^{n-c_6a^d} \leq \\
     \leq 
-    \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right)
-    \left(\dfrac{(a^d\lambda Ac_5a^{d/(d-1)}e)n^{-1/(d-1)}}{n-c_6a^d}\right)^{n-c_6a^d} = \\
-    = \exp \left(\left(\left(\dfrac{c_5d}{(d-1)A^{d-1}} - 1 - \dfrac{1}{d-1}\right)n\log n + 
-    \left(\dfrac{c_5}{(d-1)A^{d-1}} + 1 + \dfrac{1}{d-1}\right)n\log a^d\right)(1+o(1))\right).
+    \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right)\cdot\\
+    \cdot\left(\dfrac{(a^d\lambda Ac_5a^{d/(d-1)}e)n^{-1/(d-1)}}{n-c_6a^d}\right)^{n-c_6a^d} = \\
+    = \exp \left(\left(\left(\dfrac{c_5d}{(d-1)A^{d-1}} - 1 - \dfrac{1}{d-1}\right)n\log n + \right.\right.\\
+    +\left.\left.\left(\dfrac{c_5}{(d-1)A^{d-1}} + 1 + \dfrac{1}{d-1}\right)n\log a^d\right)(1+o(1))\right).
 \end{multline*}{}
 Здесь использовался тот факт, что $a^d = o(n)$, а также следующее равенство:
 
@@ -317,29 +323,55 @@ $$R_1 < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
     n\log (n - c_6a^d) = n\log (n - c_6a^d) - n\log n + n\log n = n\log (1 - c_6a^d/n) + n\log n = n\log n + o(n).
 \end{equation*}{}
 
-Так как $A$ может быть выбрана сколь угодно большой, получаем:
+Так как константа $A$ может быть выбрана сколь угодно большой, получаем:
 \begin{equation*}
     \PP[K_a \geq n] \leq 
      \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)n\log a^d \right)(1+o(1))\right).
 \end{equation*}{}
 \end{proof}{}
 
-{\it \% Интересно, является какая-нибудь из этих оценок точной?}
 
-\begin{thm}
-Пусть $R_1\equiv \dfrac{c}{a}$ п.н., где $c<1$, шары берутся в $l_2$-норме, и $d\geq 2$. Тогда $$\PP[K_a \geq n] \leq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + (d+2)n\log a \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
-\end{thm}{}
+%\begin{thm}
+%Пусть $R_1\equiv \dfrac{c}{a}$ п.н., где $c<1$, шары берутся в $l_2$-норме, и $d\geq 2$. Тогда $$\PP[K_a \geq n] \leq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + (d+2)n\log a \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
+%\end{thm}{}
 
-{\it \% Как-то тут совсем все не сходится.}
+%{\it \% Как-то тут совсем все не сходится.}
 
-\begin{proof}
-Аналогично случаю $l_1$, как и в статье. 
-\end{proof}{}
+%\begin{proof}
+%Аналогично случаю $l_1$, как и в статье. 
+%\end{proof}{}
 
 
 \begin{thebibliography}{} 
 \bibitem{AL}
 F. Aurzada, M. Lifshits, How complex is a random picture? Journal of Complexity 53 (2019) 133–161.\\
+
+\bibitem{GL}
+S. Graf, H. Luschgy, Foundations of Quantization for Probability Distributions, Lecture Notes in Mathematics, vol. 1730,
+Springer-Verlag, Berlin, 2000, p. x+230.\\
+
+\bibitem{CT}
+T.M. Cover, J.A. Thomas, Elements of Information Theory, second ed., Wiley-Interscience [John Wiley \& Sons], Hoboken,
+NJ, 2006, p. xxiv+748.\\
+
+\bibitem{Kolm}
+A.N. Kolmogorov, Three approaches to the quantitative definition of information, Int. J. Comput. Math. 2 (1968) 157–168.\\
+
+\bibitem{ADSV}
+F. Aurzada, S. Dereich, M. Scheutzow, C. Vormoor, High resolution quantization and entropy coding of jump processes, J.
+Complexity 25 (2) (2009) 163–187.\\
+
+\bibitem{Der}
+S. Dereich, The coding complexity of diffusion processes under supremum norm distortion, Stochastic Process. Appl. 118
+(6) (2008) 917–937.\\
+
+\bibitem{CSKM}
+ S.N. Chiu, D. Stoyan, W.S. Kendall, J. Mecke, Stochastic Geometry and its Applications, Wiley Series in Probability and
+Statistics, third ed., John Wiley \& Sons, Ltd., Chichester, 2013, p. xxvi+544.\\
+
+\bibitem{SW}
+R. Schneider, W. Weil, Stochastic and Integral Geometry, Probability and its Applications (New York), Springer-Verlag,
+Berlin, 2008, p. xii+693.
 \end{thebibliography}
 
 
