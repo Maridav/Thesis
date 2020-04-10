@@ -97,25 +97,25 @@
 Пусть $S$  --  случайный элемент некоторого метрического пространства $(X, dist)$.
 Средней ошибкой дискретизации $S$ называется величина  $$D^{(q)}(r) := \inf\limits_{\#\mathcal{C}\leq e^r}\E \min\limits_{A\in\mathcal{C}}dist(S, A), \quad r>0.$$ 
 Скорость ее убывания при  стремлении $r$ к бесконечности характеризует сложность распределения $S$. 
-Основными справочными материалами о дискретизации являются \cite{GL, CT, Kolm}.
-В последние два десятилетия ошибки дискретизации рассматривались, в основном,
+Общие свойства величины $D^{(q)}(r)$ изучены в \cite{GL, CT, Kolm}.
+В последние два десятилетия ошибки дискретизации исследовались, в основном,
 для траекторий случайных процессов, рассматриваемых как случайный элемент функционального пространства, см., например, \cite{ADSV, Der}. 
 
-В работе \cite{AL} рассматривалась ошибка дискретизации для случайного множества,
+В работе \cite{AL} изучалась ошибка дискретизации для случайного множества,
 рассматриваемого как случайный элемент пространства компактов, снабжённого метрикой Хаусдорфа $d_H(A, B) := \max(\sup_{a\in A}\inf_{b\in B}\|a - b\|, \sup_{b\in B}\inf_{a\in A}\|a - b\|)$.
 В качестве случайного множества была взята стандартная Булева модель (Boolean model, см. \cite{CSKM, SW}), которая
 устроена следующим образом.
 
-Рассмотрим куб $[0,a]^d$ в $\R^d$, $d \geq 1$. Рассмотрим  случайный набор шаров с центрами в этом кубе, определенный следующим образом: пусть  центры шаров $\xi_i$ ---  случайные величины, распределенные равномерно в $[0,a]^d$, радиусы $R_i$ --- некоторые одинаково распределенные неотрицательные случайные величины, а количество шаров $N$ --- пуассоновская случайная величина с параметром $a^d\lambda > 0$. Все эти случайные величины независимы. Отметим, что при таком построении множество $(\xi_i)_{i\leq N}$ --- это пуассоновский точечный процесс с интенсивностью $\lambda$.
+Рассмотрим куб $[0,a]^d$ в $\R^d$, $d \geq 1$, и  случайный набор шаров с центрами в этом кубе, определенный следующим образом: пусть  центры шаров $\xi_i$ ---  случайные величины, распределенные равномерно в $[0,a]^d$, радиусы $R_i$ --- некоторые одинаково распределенные неотрицательные случайные величины, а количество шаров $N$ --- пуассоновская случайная величина с параметром $a^d\lambda > 0$. Все эти случайные величины независимы. Отметим, что при таком построении множество $(\xi_i)_{i\leq N}$ --- это пуассоновский точечный процесс с интенсивностью $\lambda$.
 
 Обозначим через $B(\xi_i, R_i)$ шар с центром в $\xi_i$ радиуса $R_i$ (пока что мы не фиксируем норму в $\R^d$).
 Мы будем рассматривать  ``картинку'', образованную этим наборов шаров:
 $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 
-Таким образом определенная $S_a$ называется {\it Булевой моделью случайного множества}.
+Определенная таким образом картинка называется {\it Булевой моделью случайного множества}.
 Заметим, что свойства $S_a$ будут зависеть от рассматриваемой нормы.
 
- В работе \cite{AL} изучался случай $a=1$. Результаты   основаны на изучении вероятностей  больших уклонений величины  $$K_1 = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_1 = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}) \cap [0,a]^d\},$$
+ В работе \cite{AL} исследовался случай $a=1$. Результаты   основаны на изучении вероятностей  больших уклонений величины  $$K_1 = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_1 = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}) \cap [0,a]^d\},$$
 называемой {\it минимальным числом видимых шаров}, то есть на нахождении асимптотики $\PP[K_1 \geq n]$ при $n$, стремящемся к бесконечности. 
 
 В настоящей работе некоторые из этих оценок распространяются на случай, когда параметр $a$ стремится к бесконечности, причем $n \gg a^d$.
@@ -179,9 +179,9 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     \end{multline*}{}
     
     
-    Мы получили порядка $8rn/a \cdot a/4r = 2n$ ячеек, поэтому можно выбрать из них $n$ непересекающихся. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+    Мы построили порядка $8rn/a \cdot a/4r = 2n$ непересекающихся ячеек, поэтому можно выбрать $n$ из них. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
                          
-    Заметим, что событие $E$ влечет событие $K \geq n$ в силу свойств выбранных ячеек, показанных выше.
+    Заметим, что событие $E$ влечет событие $\{K \geq n\}$ в силу свойств выбранных ячеек, показанных выше.
   
     Следовательно, 
     \begin{multline*}
@@ -218,14 +218,14 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
         \begin{multline*}
         \|x_i - \xi_j\|^2_2 = 
         |\xi_i^{(d)} + r - \xi_j^{(d)} |^2 + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}|^2 \geq\\
-        \geq r^2 + 2r|\xi_i^{(d)} - \xi_j^{(d)}| + (\xi_i^{(d)} - \xi_j^{(d)})^2  + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}|^2 \geq \\
+        \geq r^2 - 2r|\xi_i^{(d)} - \xi_j^{(d)}| + (\xi_i^{(d)} - \xi_j^{(d)})^2  + \sum_{m=1}^{d-1}|\xi_i^{(m)} - \xi_j^{(m)}|^2 \geq \\
         \geq r^2 - \dfrac{2c_2a^{2+2/(d-1)}}{(rn)^{2/(d-1)}} + \left(\dfrac{1/2a^{d/(d-1)}}{(8rn)^{1/(d-1)}}\right)^2 \geq r^2.
     \end{multline*}{}
     
     
-    Мы получили порядка $8rn/a \cdot a/4r = 2n$ ячеек, поэтому можно выбрать из них $n$ непересекающихся. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+    Мы построили порядка $8rn/a \cdot a/4r = 2n$ непересекающихся ячеек, поэтому можно выбрать $n$ из них. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
                          
-    Заметим, что событие $E$ влечет событие $K \geq n$ в силу свойств выбранных ячеек, показанных выше.
+    Заметим, что событие $E$ влечет событие $\{K \geq n\}$ в силу свойств выбранных ячеек, показанных выше.
   
     Следовательно, 
     \begin{multline*}
@@ -342,36 +342,42 @@ $$R_1 < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 %\end{proof}{}
 
 
-\begin{thebibliography}{} 
-\bibitem{AL}
-F. Aurzada, M. Lifshits, How complex is a random picture? Journal of Complexity 53 (2019) 133–161.\\
-
-\bibitem{GL}
-S. Graf, H. Luschgy, Foundations of Quantization for Probability Distributions, Lecture Notes in Mathematics, vol. 1730,
-Springer-Verlag, Berlin, 2000, p. x+230.\\
-
-\bibitem{CT}
-T.M. Cover, J.A. Thomas, Elements of Information Theory, second ed., Wiley-Interscience [John Wiley \& Sons], Hoboken,
-NJ, 2006, p. xxiv+748.\\
-
-\bibitem{Kolm}
-A.N. Kolmogorov, Three approaches to the quantitative definition of information, Int. J. Comput. Math. 2 (1968) 157–168.\\
-
+\begin{thebibliography}{99}
+{\baselineskip=12pt
 \bibitem{ADSV}
-F. Aurzada, S. Dereich, M. Scheutzow, C. Vormoor, High resolution quantization and entropy coding of jump processes, J.
+F.~Aurzada, S.~Dereich, M.~Scheutzow, C.~Vormoor, High resolution quantization and entropy coding of jump processes, J.
 Complexity 25 (2) (2009) 163–187.\\
 
-\bibitem{Der}
-S. Dereich, The coding complexity of diffusion processes under supremum norm distortion, Stochastic Process. Appl. 118
-(6) (2008) 917–937.\\
+\bibitem{AL}
+F.~Aurzada, M.~Lifshits, How complex is a random picture? Journal of Complexity 53 (2019) 133–161.\\
 
 \bibitem{CSKM}
- S.N. Chiu, D. Stoyan, W.S. Kendall, J. Mecke, Stochastic Geometry and its Applications, Wiley Series in Probability and
+ S.N.~Chiu, D.~Stoyan, W.S.~Kendall, J.~Mecke, Stochastic Geometry and its Applications, Wiley Series in Probability and
 Statistics, third ed., John Wiley \& Sons, Ltd., Chichester, 2013, p. xxvi+544.\\
 
+\bibitem{CT}
+T.M.~Cover, J.A.~Thomas, Elements of Information Theory, second ed., Wiley-Interscience [John Wiley \& Sons], Hoboken,
+NJ, 2006, p. xxiv+748.\\
+
+\bibitem{Der}
+S.~Dereich, The coding complexity of diffusion processes under supremum norm distortion, Stochastic Process. Appl. 118
+(6) (2008) 917–937.\\
+
+\bibitem{GL}
+S.~Graf, H.~Luschgy, Foundations of Quantization for Probability Distributions, Lecture Notes in Mathematics, vol. 1730,
+Springer-Verlag, Berlin, 2000, p. x+230.\\
+
+
+\bibitem{Kolm}
+A.N.~Kolmogorov, Three approaches to the quantitative definition of information, Int. J. Comput. Math. 2 (1968) 157–168.\\
+
+
+
+
 \bibitem{SW}
-R. Schneider, W. Weil, Stochastic and Integral Geometry, Probability and its Applications (New York), Springer-Verlag,
+R.~Schneider, W.~Weil, Stochastic and Integral Geometry, Probability and its Applications (New York), Springer-Verlag,
 Berlin, 2008, p. xii+693.
+}
 \end{thebibliography}
 
 
