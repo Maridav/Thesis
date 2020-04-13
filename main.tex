@@ -106,7 +106,7 @@
 В качестве случайного множества была взята стандартная Булева модель (Boolean model, см. \cite{CSKM, SW}), которая
 устроена следующим образом.
 
-Рассмотрим куб $[0,a]^d$ в $\R^d$, $d \geq 1$, и  случайный набор шаров с центрами в этом кубе, определенный следующим образом: пусть  центры шаров $\xi_i$ ---  случайные величины, распределенные равномерно в $[0,a]^d$, радиусы $R_i$ --- некоторые одинаково распределенные неотрицательные случайные величины, а количество шаров $N$ --- пуассоновская случайная величина с параметром $a^d\lambda > 0$. Все эти случайные величины независимы. Отметим, что при таком построении множество $(\xi_i)_{i\leq N}$ --- это пуассоновский точечный процесс с интенсивностью $\lambda$.
+Рассмотрим куб $[0,a]^d$ в $\R^d$, $d \geq 1$, и  случайный набор шаров с центрами в этом кубе, определенный следующим образом: пусть  центры шаров $\xi_i$ ---  случайные величины, распределенные равномерно в $[0,a]^d$, радиусы $R_i$ --- некоторые одинаково распределенные неотрицательные случайные величины, а количество шаров $N$ --- пуассоновская случайная величина с параметром $a^d\lambda$, где $\lambda = \lambda(a)$ -- положительный параметр, зависящий от $a$. Все эти случайные величины независимы. Отметим, что при таком построении множество $(\xi_i)_{i\leq N}$ --- это пуассоновский точечный процесс с интенсивностью $\lambda$.
 
 Обозначим через $B(\xi_i, R_i)$ шар с центром в $\xi_i$ радиуса $R_i$ (пока что мы не фиксируем норму в $\R^d$).
 Мы будем рассматривать  ``картинку'', образованную этим наборов шаров:
@@ -118,19 +118,20 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
  В работе \cite{AL} исследовался случай $a=1$. Результаты   основаны на изучении вероятностей  больших уклонений величины  $$K_1 = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_1 = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}) \cap [0,a]^d\},$$
 называемой {\it минимальным числом видимых шаров}, то есть на нахождении асимптотики $\PP[K_1 \geq n]$ при $n$, стремящемся к бесконечности. 
 
-В настоящей работе некоторые из этих оценок распространяются на случай, когда параметр $a$ стремится к бесконечности, причем $n \gg a^d$.
+В настоящей работе некоторые из этих оценок распространяются на случай, когда параметр $a$ стремится к бесконечности, причем $n \gg a^d\lambda$.
 
 Заметим, что тривиальная оценка, вытекающая из свойств пуассоновского распределения, такова:
 \begin{multline*}
     \PP[K_a \geq n] \leq \PP[N\geq n] \sim \PP[N = n] =\\
     = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda} \sim \left(\dfrac{ea^d\lambda}{n}\right)^ne^{-a^d\lambda}\sqrt{2\pi n} = 
     \exp(-n\log n + n\log (a^d\lambda) + O(n) ) = \\
-    =\exp((-n\log n + dn\log a + O(n))), \ n\to \infty, a \to\infty.
+    =\exp((-n\log n + dn\log a + n\log\lambda + 
+    O(n))), \ n\to \infty, a \to\infty.
 \end{multline*}{}
-Условие $n\gg a^d$ гарантирует, что вероятность больших уклонений стремится к нулю, так как $-n\log(n/a^d)$ стремится к минус бесконечности с ростом $n$ и $a$. 
+Условие $n\gg a^d\lambda$ гарантирует, что вероятность больших уклонений стремится к нулю, так как $-n\log(n/a^d\lambda)$ стремится к минус бесконечности с ростом $n$ и $a$. 
 
 \subsection{Полученные результаты}
-Получены ({\it пока что :)} ) более точные оценки вероятности больших уклонений для $\ell_1$- и $\ell_2$-нормы. А именно, что существует число $\beta >1$, для которого $$\PP[K_a \geq n] = \exp((-\beta\cdot n\log n + \beta\cdot dn\log a + O(n))), \ n\to \infty, a \to\infty.$$
+Получены ({\it пока что :)} ) более точные оценки вероятности больших уклонений для $\ell_1$- и $\ell_2$-нормы. А именно, что существует число $\beta >1$, для которого $$\PP[K_a \geq n] = \exp((-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n))), \ n\to \infty, a \to\infty.$$
 Число $\beta$ зависит от размерности $d$, используемой нормы и распределения радиусов $R_i$.
 
 
@@ -148,16 +149,16 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 Рассмотрим случай, когда радиусы -- это константа $r>0$ п.н. 
 
 \begin{thm}
-Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$ и $n \gg a^d$. 
-Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$ и $n \gg a^d\lambda$. 
+Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
 \begin{proof}
     Рассмотрим набор ячеек: 
     \begin{multline*}
-        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{d/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{d/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]\right\}
+        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{d/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{d/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]\right.
     \times \\
-    \times \left\{\left[l\left(\dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}} +2r\right) ,  l\left(\dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}+2r\right) + \dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}  \right]\right\},
+    \times \left.\left[l\left(\dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}} +2r\right) ,  l\left(\dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}+2r\right) + \dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}  \right]\right\},
     \end{multline*}{}
     где $k_m \in \{0, \ldots, \lfloor (8rn/a)^{1/(d-1)}\rfloor-1\}$, $l\in \left\{0, \ldots, \lfloor a/4r\rfloor\right\}$, $c_1 = 2^{-(2+3/(d-1))}$. 
     
@@ -186,13 +187,13 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     Следовательно, 
     \begin{multline*}
         \PP[K_a\geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(\dfrac{1}{a^d}\cdot\left(\dfrac{1/2\cdot a^{d/(d-1)}}{(8rn)^{1/(d-1)}}\right)^{d-1}\cdot \dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}\right)^n = \\
-        =\exp\left(dn\log a - a^d\lambda - \left(1+\dfrac{1}{d-1}\right)n\log n + \dfrac{d}{d-1} n\log a  + O(n)\right) =\\
-        =\exp\left(-\left(1 + \dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)dn\log a + O(n)\right).
+        =\exp\left(dn\log a + n\log\lambda - a^d\lambda - \left(1+\dfrac{1}{d-1}\right)n\log n + \dfrac{d}{d-1} n\log a  + O(n)\right) =\\
+        =\exp\left(-\left(1 + \dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)dn\log a + n\log\lambda + O(n)\right).
     \end{multline*}{}
 \end{proof}{}
 
 \begin{thm}
-Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$ и $n \gg a^d$. 
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$ и $n \gg a^d\lambda$. 
 Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
@@ -200,9 +201,9 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 \begin{proof}
     Рассмотрим набор ячеек: 
     \begin{multline*}
-        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{d/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{d/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]\right\}
+        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{d/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{d/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]\right.
     \times \\
-    \times \left\{\left[l\left(\dfrac{c_2a^{2 + 2/(d-1)}}{r(rn)^{2/(d-1)}} +2r\right) ,  l\left(\dfrac{c_2a^{2 + 2/(d-1)}}{r(rn)^{2/(d-1)}}+2r\right) + \dfrac{c_2a^{2 +2/(d-1)}}{r(rn)^{2/(d-1)}}  \right]\right\},
+    \times \left.\left[l\left(\dfrac{c_2a^{2 + 2/(d-1)}}{r(rn)^{2/(d-1)}} +2r\right) ,  l\left(\dfrac{c_2a^{2 + 2/(d-1)}}{r(rn)^{2/(d-1)}}+2r\right) + \dfrac{c_2a^{2 +2/(d-1)}}{r(rn)^{2/(d-1)}}  \right]\right\},
     \end{multline*}{}
     где $k_m \in \{0, \ldots, \lfloor (8rn/a)^{1/(d-1)}\rfloor-1\}$, $l\in \left\{0, \ldots, \lfloor a/4r\rfloor\right\}$, $c_2 = 2^{-(4+6/(d-1))}$. 
     
@@ -232,8 +233,8 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
         \PP[K_a\geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n!
         \cdot \left(\dfrac{1}{a^d}\cdot\left(\dfrac{1/2\cdot a^{d/(d-1)}}{(8rn)^{1/(d-1)}}\right)^{d-1}\cdot
         \dfrac{c_2a^{2+ 2/(d-1)}}{r(rn)^{2/(d-1)}}\right)^n = \\
-        =\exp\left(dn\log a - a^d\lambda - \left(2+\dfrac{2}{d-1}\right)n\log n + \left(2+\dfrac{2}{d-1}\right) n\log a  + O(n)\right) = \\
-        =\exp\left(-\left(1+ \dfrac{2}{d-1}\right)n\log n + \left(1 + \dfrac{2}{d-1}\right)dn\log a + O(n)\right).
+        =\exp\left(dn\log a + n\log\lambda - a^d\lambda - \left(2+\dfrac{2}{d-1}\right)n\log n + \left(2+\dfrac{2}{d-1}\right) n\log a  + O(n)\right) = \\
+        =\exp\left(-\left(1+ \dfrac{2}{d-1}\right)n\log n + \left(1 + \dfrac{2}{d-1}\right)dn\log a + n\log\lambda + O(n)\right).
     \end{multline*}{}
 \end{proof}{}
 
