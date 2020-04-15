@@ -115,7 +115,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 Определенная таким образом картинка называется {\it Булевой моделью случайного множества}.
 Заметим, что свойства $S_a$ будут зависеть от рассматриваемой нормы.
 
- В работе \cite{AL} исследовался случай $a=1$. Результаты   основаны на изучении вероятностей  больших уклонений величины  $$K_1 = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_1 = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}) \cap [0,a]^d\},$$
+ В работе \cite{AL} исследовался случай $a=1$ с постоянной интенсивностью $\lambda$. Результаты   основаны на изучении вероятностей  больших уклонений величины  $$K_1 = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_1 = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}) \cap [0,a]^d\},$$
 называемой {\it минимальным числом видимых шаров}, то есть на нахождении асимптотики $\PP[K_1 \geq n]$ при $n$, стремящемся к бесконечности. 
 
 В настоящей работе некоторые из этих оценок распространяются на случай, когда параметр $a$ стремится к бесконечности, причем $n \gg a^d\lambda$.
@@ -238,19 +238,19 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     \end{multline*}{}
 \end{proof}{}
 
-\begin{thm}
-Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_\infty$-норме, и $d\geq 2$. Тогда $$\PP[K_a \geq n] \geq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + dn\log a \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
-\end{thm}{}
-
-\begin{proof} 
-Зафиксируем $\rho_1, \rho_2$, такие, что $r<\rho_1<\rho_2<1$. Заметим, что тогда $r/a<\rho_1<\rho_2<1$ для любого $a\geq 1$. Далее сделаем все то же самое, что в статье. Рассмотрим гиперплоскость $$H = \left\{x\in[0, 1]^d \colon \slim_{m=1}^dx^{(m)} = d\rho_2, \min\limits_{1\leq m \leq d}x^{(m)}>\rho_1\right\}.$$ 
-Для достаточно малой константы $c_1$ выберем $n$ точек $\beta_1, \ldots, \beta_n$ из $H$, чтобы выполнялось $\|\beta_i - \beta_j\|_1 > c_1n^{1/(d-1)}$ для всех $i\not= j$. Теперь рассмотрим ячейки $V_i = B(\beta_i, c_2n^{-1/(d-1)})$, где $c_2 < c_1/(4d)$. И определим следующее событие $$E = \{N = n\} \cap  \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
-Затем показывается, что из события $E$ следует событие $K_a \geq n$. В итоге получаем:
-\begin{multline*}
-    \PP[K_a \geq n] \geq \PP[E] = \dfrac{a^d\lambda}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(c_2n^{-1/(d-1)}\right)^dn = \\
-    =\exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + dn\log a\right)(1+o(1))\right).
-\end{multline*}{}
-\end{proof}{}
+%\begin{thm}
+%Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_\infty$-норме, и $d\geq 2$. Тогда $$\PP[K_a \geq n] \geq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + dn\log a \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
+%\end{thm}{}
+%
+%\begin{proof} 
+%Зафиксируем $\rho_1, \rho_2$, такие, что $r<\rho_1<\rho_2<1$. Заметим, что тогда $r/a<\rho_1<\rho_2<1$ для любого $a\geq 1$. Далее сделаем все то же самое, что в статье. Рассмотрим гиперплоскость $$H = \left\{x\in[0, 1]^d \colon \slim_{m=1}^dx^{(m)} = d\rho_2, \min\limits_{1\leq m \leq d}x^{(m)}>\rho_1\right\}.$$ 
+%Для достаточно малой константы $c_1$ выберем $n$ точек $\beta_1, \ldots, \beta_n$ из $H$, чтобы выполнялось $\|\beta_i - \beta_j\|_1 > c_1n^{1/(d-1)}$ для всех $i\not= j$. Теперь рассмотрим ячейки $V_i = B(\beta_i, c_2n^{-1/(d-1)})$, где $c_2 < c_1/(4d)$. И определим следующее событие $$E = \{N = n\} \cap  \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+%Затем показывается, что из события $E$ следует событие $K_a \geq n$. В итоге получаем:
+%\begin{multline*}
+%    \PP[K_a \geq n] \geq \PP[E] = \dfrac{a^d\lambda}{n!}e^{-a^d\lambda}\cdot n!\cdot \left(c_2n^{-1/(d-1)}\right)^dn = \\
+%    =\exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + dn\log a\right)(1+o(1))\right).
+%\end{multline*}{}
+%\end{proof}{}
 
 \section{Верхние оценки для вероятности больших уклонений}
 
