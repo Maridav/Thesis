@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}   
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm, amsmath, amssymb, pdfpages}
+
+%\usepackage[left=3cm,right=1cm,
+%   top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+
+
+\renewcommand{\proofname}{Доказательство}
+\theoremstyle{plain}
+\newtheorem{thm}{Теорема} %[section], чтобы нумеровать сначала в каждом разделе
+\newtheorem{lm}{Лемма}
+\newtheorem*{st}{Утверждение}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Определение}
+\newtheorem*{ex}{Упр}
+\newtheorem*{cor}{Следствие}
+\newtheorem*{name}{Обозначение}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Замечание}
+
+
+\def\geq{\geqslant}
+\def\ge{\geqslant}
+\def\leq{\leqslant}
+\def\le{\leqslant}
+
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\vol}{vol}
+
+\newcommand{\cuplim}{\bigcup\limits}
+\newcommand{\ilim}{\int\limits}
+\newcommand{\slim}{\sum\limits}
+\newcommand{\maxlim}{\max\limits}
+\newcommand{\suplim}{\sup\limits}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\dm}{\, d\mu_n}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\R^nn}{\mathbb{R}^n}
+%\newcommand{C^1}{\mathbb{C}^1}
+\newcommand{\til}{\widetilde}
+\newcommand{\dd}{\partial}
+\newcommand{\eps}{\varepsilon}
+
+
+
+\begin{document}
+
+\begin{thm}
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$ и $n \gg a^d\lambda$. 
+Предположим, что 
+\begin{equation*}
+    \PP[K_1 \geq n] \geq \exp \left(-\beta\cdot n\log n + n\log\lambda + O(n)\right),\  n \to \infty.
+\end{equation*}{}
+Тогда 
+\begin{equation*}
+    \PP[K_a \geq n] \geq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n)\right),\  n, a \to \infty.
+\end{equation*}{}
+\end{thm}
+
+\begin{proof}
+Пусть $h = h(a, r) = \left\lfloor\dfrac{a-1}{2r+1}\right\rfloor$. Рассмотрим набор ячеек:
+\begin{equation*}
+    \left\{\prod_{m = 1}^d\left[k_m\left(\dfrac{a - 2rh}{h+1} + 2r\right), k_m\left(\dfrac{a - 2rh}{h+1} + 2r\right) + \dfrac{a - 2rh}{h+1}\right]\right\},
+\end{equation*}{}
+где $k_m\in \{0, 1, \ldots, h\}$.
+
+Заметим, что для точек $x$ и $y$, лежащих в разных ячейках, $\min_{1\leq m\leq d} |x^{(m)} - y^{(m)}| \geq 2r$, поэтому шары с центрами в разных ячейках не пересекаются. 
+
+Также заметим, что длина стороны ячейки удовлетворяет следующей оценке:
+\begin{equation*}
+    \dfrac{a - 2rh}{h+1} \geq \dfrac{a - 2r\cdot \frac{a-1}{2r+1}}{\frac{a-1}{2r+1} + 1} = 1.
+\end{equation*}{}
+
+Мы построили ячейки $V_1, \ldots, V_l$, где $l = (h+1)^d$. Назовём минимальным числом видимых шаров в ячейке $V_j$ следующую величину:
+\begin{equation*}
+    K^j = \min\{s\ |\ \exists i_1, \ldots i_s \in \{1, \ldots n\} \colon S \cap V_j = \bigcup_{t = 1}^s B(\xi_{i_t}, R_1) \}.
+\end{equation*}{}
+Введем еще одно обозначение: $U = [0,a]^d \setminus (\bigcup_{j=1}^l V_j)$.
+
+Определим следующее событие:
+\begin{equation*}
+    E = \{\xi_i \not\in U \text{ для } i = 1, \ldots, N\} \cap \bigcup_{j = 1}^l\{K^j \geq n/(h+1)^d\}.
+\end{equation*}{}
+Заметим, что для различных $j$ события $\{K^j \geq n/(h+1)^d\}$ независимы.
+
+Докажем, что событие $E$ влечет событие $\{K_a \geq n\}$. Действительно, если все центры лежат в наших ячейках, то шары с центрами в разных ячейках не пересекаются. Тогда если в каждой ячейке минимальное число видимых шаров хотя бы $n/(h+1)^d$, то минимальное число видимых шаров во всей картинке удовлетворяет неравенству:
+\begin{equation*}
+    K_a \geq l\cdot n/(h+1)^d = (h+1)^d \cdot n/(h+1)^d  = n.
+\end{equation*}{}
+
+Вычислим вероятности искомых событий:
+\begin{equation*}
+    \PP\{\xi_i \not\in U \text{ для } i = 1, \ldots, N\} =\exp(-\lambda\cdot\vol_d(U)) \geq \exp(-\lambda\cdot (2ra^{d-1}) \cdot dh) \geq \exp(-\lambda\cdot da^d).
+\end{equation*}{}
+
+Заметим, что так как сторона ячеек хотя бы 1, то выполнено неравенство:
+\begin{multline*}
+    \PP\{K^j \geq n/(h+1)^d\} \geq 
+    \PP\{K_1 \geq n/(h+1)^d\} \geq\\ 
+    \geq \exp \left(-\beta\cdot n/(h+1)^d\log (n/(h+1)^d) + n/(h+1)^d\log\lambda + O(n/(h+1)^d)\right) \geq\\
+    \geq \exp \left(-\beta\cdot n/(h+1)^d(\log n - d\log a) + n/(h+1)^d\log\lambda + O(n/(h+1)^d)\right).
+\end{multline*}{}
+
+Собирая все вместе, получаем 
+\begin{multline*}
+    \PP\{K_a \geq n\} \geq \exp \left(-d\lambda a^d-\beta\cdot n(\log n - d\log a) + n\log\lambda + O(n)\right) = \\
+    \exp \left(-\beta\cdot n\log n - \beta\cdot dn\log a + n\log\lambda + O(n)\right).
+\end{multline*}{}
+\end{proof}{}
+
+
+
+
+\end{document}
