@@ -146,19 +146,21 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 
 \section{Нижние оценки для вероятности больших уклонений}
 
+\subsection{Постоянный радиус}
+
 Рассмотрим случай, когда радиусы -- это константа $r>0$ п.н. 
 
 \begin{thm}
-Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$ и $n \gg a^d\lambda$. 
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$, и $n \gg a^d\lambda$. 
 Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
 \begin{proof}
     Рассмотрим набор ячеек: 
     \begin{multline*}
-        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{d/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{d/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]\right.
+        \prod\limits_{m=1}^{d-1}\left[\dfrac{a^{d/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{d/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]
     \times \\
-    \times \left.\left[l\left(\dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}} +2r\right) ,  l\left(\dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}+2r\right) + \dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}  \right]\right\},
+    \times \left[l\left(\dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}} +2r\right) ,  l\left(\dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}+2r\right) + \dfrac{c_1a^{d/(d-1)}}{(rn)^{1/(d-1)}}  \right],
     \end{multline*}{}
     где $k_m \in \{0, \ldots, \lfloor (8rn/a)^{1/(d-1)}\rfloor-1\}$, $l\in \left\{0, \ldots, \lfloor a/4r\rfloor\right\}$, $c_1 = 2^{-(2+3/(d-1))}$. 
     
@@ -193,7 +195,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 \end{proof}{}
 
 \begin{thm}
-Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$ и $n \gg a^d\lambda$. 
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$, и $n \gg a^d\lambda$. 
 Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
@@ -201,9 +203,9 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 \begin{proof}
     Рассмотрим набор ячеек: 
     \begin{multline*}
-        \left\{\prod\limits_{m=1}^{d-1}\left[\dfrac{a^{d/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{d/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]\right.
+        \prod\limits_{m=1}^{d-1}\left[\dfrac{a^{d/(d-1)}(k_m+1/4)}{(8rn)^{1/(d-1)}}, \dfrac{a^{d/(d-1)}(k_m+3/4)}{(8rn)^{1/(d-1)}}\right]
     \times \\
-    \times \left.\left[l\left(\dfrac{c_2a^{2 + 2/(d-1)}}{r(rn)^{2/(d-1)}} +2r\right) ,  l\left(\dfrac{c_2a^{2 + 2/(d-1)}}{r(rn)^{2/(d-1)}}+2r\right) + \dfrac{c_2a^{2 +2/(d-1)}}{r(rn)^{2/(d-1)}}  \right]\right\},
+    \times \left[l\left(\dfrac{c_2a^{2 + 2/(d-1)}}{r(rn)^{2/(d-1)}} +2r\right) ,  l\left(\dfrac{c_2a^{2 + 2/(d-1)}}{r(rn)^{2/(d-1)}}+2r\right) + \dfrac{c_2a^{2 +2/(d-1)}}{r(rn)^{2/(d-1)}}  \right],
     \end{multline*}{}
     где $k_m \in \{0, \ldots, \lfloor (8rn/a)^{1/(d-1)}\rfloor-1\}$, $l\in \left\{0, \ldots, \lfloor a/4r\rfloor\right\}$, $c_2 = 2^{-(4+6/(d-1))}$. 
     
@@ -252,12 +254,47 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 %\end{multline*}{}
 %\end{proof}{}
 
+\subsection{Радиус с плотностью}
+
+\begin{thm}
+Пусть распределение $R_1$ имеет плотность $p$ относительно меры Лебега, причем $p(z) \geq c z^{\alpha -1}$ для малых $z$ и некоторых $c, \alpha >0$, $d \geq 1$, и $n \gg a^d\lambda$.
+Тогда $$\PP[K_a \geq n] \geq \exp\left(-\left(1 + \alpha/d\right)n\log n + (1 + \alpha/d)dn\log a + n\log \lambda + O(n)\right), \ n, a \to \infty.$$
+\end{thm}{}
+
+\begin{rem}
+Утверждение теоремы верно для произвольной нормы в $\R^d$.
+\end{rem}{}
+
+\begin{proof}
+Рассмотрим набор ячеек:
+\begin{equation*}
+    \prod_{m = 1}^d \left[\dfrac{a(k_m + 1/4)}{(2n)^{1/d}},\ \dfrac{a(k_m + 3/4)}{(2n)^{1/d}}\right],
+\end{equation*}{}
+где $k_m\in \{0, \ldots \lfloor(2n)^{1/d}\rfloor - 1\}$.
+
+Мы построили порядка $2n$ непересекающихся ячеек, поэтому можно выбрать $n$ из них. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие 
+\begin{equation*}
+    E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, R_i \in [c_1an^{-1/d}, c_2an^{-1/d}],  i = 1, \ldots, n\},
+\end{equation*}
+где $c_2 > c_1> 0$ -- некоторые константы, которые могут зависеть от нормы и размерности, причем $c_2$ выбирается так, чтобы для $i\not=j$ шары $B(\xi_i, R_i), B(\xi_j, R_j)$ не пересекались. В этом случае событие $E$ влечет $[K_a \geq n]$.
+
+Следовательно, 
+\begin{multline*}
+    \PP[K \geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n! \cdot \left(\dfrac{1}{a^d}\left(\dfrac{1/2 a}{(2n)^{1/d}}\right)^d\cdot \int_{c_1an^{-1/d}}^{c_2an^{-1/d}} p(z) dz\right)^n \geq \\
+    \geq (a^d\lambda)^n e^{-a^d\lambda} \cdot \left(\dfrac{1}{a^d}\left(\dfrac{1/2 a}{(2n)^{1/d}}\right)^d\cdot c \int_{c_1an^{-1/d}}^{c_2an^{-1/d}} z^{\alpha - 1} dz\right)^n = \\
+    = (a^d\lambda)^n e^{-a^d\lambda} \cdot \left(\dfrac{1}{a^d}\left(\dfrac{1/2 a}{(2n)^{1/d}}\right)^d\cdot c (c_2^\alpha - c_1^\alpha)/\alpha \cdot a^\alpha n^{-\alpha/d}\right)^n = \\
+    = \exp\left(-(1 + \alpha/d)n\log n + (1 + \alpha/d)dn\log a + n\log\lambda + O(n)\right).
+\end{multline*}{}
+\end{proof}{}
+
 \section{Верхние оценки для вероятности больших уклонений}
 
 \begin{thm}
 Пусть $R_1\equiv \dfrac{r}{a}$ п.н., где $r<1$, шары берутся в $l_1$-норме, и $d\geq 2$. 
-Тогда $$\PP[K_a \geq n] \leq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)n\log a^d \right)(1 + o(1))\right), n \to \infty, a\to \infty.$$
+Тогда $$\PP[K_a \geq n] \leq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)n\log a^d \right)(1 + o(1))\right), n, a\to \infty.$$
 \end{thm}{}
+
+
 
 \begin{proof}
 {\it Шаг 1. Объединение шаров в группы.} Пусть $$S = \bigcup_{i=1}^{K_a} B(\xi_i, R_1) \cap [0,1]^d$$ обозначает неуменьшаемое представление картинки $S$. Тогда для каждого числа $i\leq K_a$ существует точка $\nu_i\in B(\xi_i, R_1) \cap [0,1]^d$, которая не лежит ни в каком другом шаре $B(\xi_j, R_1), j \not= i$. Зафиксируем такие $\nu_i, i = 1, 2, \ldots K_a$. Обозначим $\Delta_i := \nu_i - \xi_i$.
