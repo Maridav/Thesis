@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}   
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsthm, amsmath, amssymb, pdfpages}
+
+%\usepackage[left=3cm,right=1cm,
+%   top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+
+
+\renewcommand{\proofname}{Доказательство}
+\theoremstyle{plain}
+\newtheorem{thm}{Теорема} %[section], чтобы нумеровать сначала в каждом разделе
+\newtheorem{lm}{Лемма}
+\newtheorem*{st}{Утверждение}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Определение}
+\newtheorem*{ex}{Упр}
+\newtheorem*{cor}{Следствие}
+\newtheorem*{name}{Обозначение}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Замечание}
+
+
+\def\geq{\geqslant}
+\def\ge{\geqslant}
+\def\leq{\leqslant}
+\def\le{\leqslant}
+
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\vol}{vol}
+
+\newcommand{\cuplim}{\bigcup\limits}
+\newcommand{\ilim}{\int\limits}
+\newcommand{\slim}{\sum\limits}
+\newcommand{\maxlim}{\max\limits}
+\newcommand{\suplim}{\sup\limits}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\dm}{\, d\mu_n}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\R^nn}{\mathbb{R}^n}
+%\newcommand{C^1}{\mathbb{C}^1}
+\newcommand{\til}{\widetilde}
+\newcommand{\dd}{\partial}
+\newcommand{\eps}{\varepsilon}
+
+
+
+\begin{document}
+Следующая теорема верна для любого распределения радиусов и для любой нормы. 
+\begin{thm}
+Пусть $d\geq 2$,  $n \gg a^d\lambda$ и $n \gg a^d$. 
+Предположим, что 
+\begin{equation*}
+    \PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + n\log\lambda + O(n)\right),\  n \to \infty.
+\end{equation*}{}
+Тогда 
+\begin{equation*}
+    \PP[K_a \geq n] \leq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n)\right),\  n, a \to \infty.
+\end{equation*}{}
+\end{thm}
+
+\begin{proof}
+Разобьем куб $[0, a]^d$ на такие ячейки:
+\begin{equation*}
+    \prod_{m = 1}^d\left[\dfrac{k_m a}{\lfloor a \rfloor}, \dfrac{(k_m + 1)a}{\lfloor a \rfloor}\right],
+\end{equation*}{}
+где $k_m\in \{0, 1, \ldots, \lfloor a\rfloor - 1\}$. Пусть это ячейки $V_1, \ldots, V_l$, где $l = \lfloor a\rfloor ^d$. 
+Определим картинку, образованную ячейкой $V_j$, следующим образом:
+\begin{equation*}
+    S^j = \cuplim_{\substack{i\in \{1, \ldots, N\}\colon\\ \xi_i\in V_j}} B(\xi_i, R_i) \cap V_j.
+\end{equation*}{}
+Назовём минимальным числом видимых шаров в ячейке $V_j$ следующую величину:
+\begin{equation*}
+    K^j = \min\{s\geq 1\ |\ \exists i_1, \ldots i_s \in \{1, \ldots, N\} \colon \xi_{i_t}\in V_j,\ t = 1, \ldots, s;\ S^j = \bigcup_{t = 1}^s B(\xi_{i_t}, R_1)\cap V_j\}.
+\end{equation*}{}
+Рассмотрим событие
+\begin{equation*}
+    E = \bigcup_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}} \bigcap_{s = 1}^l \{K^s \geq n_s\}.
+\end{equation*}{}
+Заметим, что из события $\{K_a \geq n\}$ следует событие $E$. Действительно, если $K_a \geq n$, то и $\sum K^s \geq n$. Тогда существует набор $\{n_1, \ldots n_l\}$ с $n_s \geq 0\ \forall s$ и $\sum n_s = n$, для которого выполнено $K^s \geq n_s$ для всех $s = 1, \ldots l$. Это и есть событие $E$.
+
+Вычислим вероятность события $\{K^s \geq n_s\}$. 
+С точностью до гомотетии это то же самое, что $\til K_1 \geq n_s$, где $\til K_1$ обозначает минимальное число видимых шаров в кубе $[0, 1]^d$, рассматриваемое раньше, но с интенсивностью пуассоновского поля $\til\lambda = \lambda (a/\lfloor a\rfloor)^d$. 
+
+Заметим также, что события $\{K^s \geq n_s\}$ независимы для различных $s$.\\
+Таким образом,
+\begin{multline*}
+    \PP[K_a\geq n] \leq
+    \PP[E] \leq 
+    \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\prod_{s=1}^l\PP[K^s\geq n_s] =
+    \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\prod_{s=1}^l\PP[\til K_1\geq n_s]\leq \\
+    \leq \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\prod_{s=1}^l \exp(-\beta\cdot n_s\log n_s + n_s\log\til\lambda + O(n_s)) =\\
+    =\sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot \sum_{s=1}^l n_s\log n_s + n\log\til\lambda + \sum_{s=1}^l O(n_s)\right).
+    \end{multline*}
+Нетрудно убедиться, что минимум выражения $\sum_{s=1}^l n_s\log n_s$ достигается на наборе $\{n/l, \ldots, n/l\}$. Также заметим, что $n\log\til\lambda = n\log\lambda + O(n)$ и $\sum_{s=1}^lO(n_s) = O(n)$. Получим, что
+    \begin{multline*}
+    \PP[K_a\geq n]\leq
+    \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot \sum_{s=1}^l \dfrac{n}{l}\log\dfrac{n}{l} + n\log\lambda + O(n)\right) = \\
+    =\sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n)\right).
+    \end{multline*}
+Посчитаем количество способов разбиения числа $n$ на $\lfloor a\rfloor^d$ неотрицательных слагаемых:
+\begin{equation*}
+    \binom{n + \lfloor a\rfloor^d - 1}{\lfloor a\rfloor^d - 1} \leq \dfrac{(n + a^d)^{a^d}}{(\lfloor a\rfloor^d -1)!} = \exp\left(a^d + a^d\log\left(\dfrac{n}{a^d}+1\right) - \dfrac{d}{2} \log a + o(n)\right) = \exp(o(n)).
+\end{equation*}{}
+Объединяя все полученные неравенства, получаем, что 
+\begin{equation*}
+    \PP[K_a\geq n]\leq
+    \exp\left(-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n) \right).
+\end{equation*}{}
+\end{proof}{}
+
+
+
+
+\end{document}
