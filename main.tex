@@ -18,7 +18,7 @@
 \theoremstyle{definition}
 \newtheorem*{defn}{Определение}
 \newtheorem*{ex}{Упр}
-\newtheorem*{cor}{Следствие}
+\newtheorem{cor}{Следствие}
 \newtheorem*{name}{Обозначение}
 
 \theoremstyle{remark}
@@ -150,7 +150,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 
 Рассмотрим случай, когда радиусы -- это константа $r>0$ п.н. 
 
-\begin{thm}
+\begin{thm}\label{lowconst1}
 Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$, $n \gg a^d\lambda$, и $n\gg a^d$. 
 Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
@@ -194,7 +194,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     \end{multline*}{}
 \end{proof}{}
 
-\begin{thm}
+\begin{thm}\label{lowconst2}
 Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$,  $n \gg a^d\lambda$, и $n\gg a^d$. 
 Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
@@ -257,7 +257,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 \subsection{Радиус с плотностью}
 Утверждение следующей теоремы верно для произвольной нормы в $\R^d$.
 
-\begin{thm}
+\begin{thm}\label{lowdens}
 Пусть распределение $R_1$ имеет плотность $p$ относительно меры Лебега, причем $p(z) \geq c z^{\alpha -1}$ для малых $z$ и некоторых $c, \alpha >0$. Предположим, что $d \geq 1$, и $n \gg a^d\lambda$.
 Тогда $$\PP[K_a \geq n] \geq \exp\left(-\left(1 + \alpha/d\right)n\log n + (1 + \alpha/d)dn\log a + n\log \lambda + O(n)\right), \ n, a \to \infty.$$
 \end{thm}{}
@@ -290,9 +290,9 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 
 \section{Верхние оценки для вероятности больших уклонений}
 
-\begin{thm}
+\begin{thm}\label{uppconst1}
 Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$,  $n \gg a^d\lambda$, и $n\gg a^d$. 
-Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + O(n)\right), n, a\to \infty.$$
+Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + o(n\log n)\right), n, a\to \infty.$$
 \end{thm}{}
 
 
@@ -344,12 +344,12 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 \begin{multline*}
     \PP[K_a\geq n] \leq \PP[K^{(\pm)} \geq n-c_6a^d] \leq \sum_{U\in\mathcal{U}}\PP[N_U \geq n-c_6a^d] \leq
     \#\mathcal{U}\cdot\max_{U\in\mathcal{U}}\PP[N_U\geq n- c_6a^d] \leq \\
-    \leq  \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + O(n)\right) \left(\dfrac{\lambda\vol_d(U)e}{n-c_6a^d}\right)^{n-c_6a^d} \leq \\
+    \leq  \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + o(n\log n)\right) \left(\dfrac{\lambda\vol_d(U)e}{n-c_6a^d}\right)^{n-c_6a^d} \leq \\
     \leq 
-    \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + O(n)\right)\cdot\\
+    \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + o(n\log n)\right)\cdot\\
     \cdot\left(\dfrac{\lambda Ac_5a^{d^2/(d-1)}en^{-1/(d-1)}}{n-c_6a^d}\right)^{n-c_6a^d} = \\
     = \exp\left(\left(\dfrac{c_5d}{(d-1)A^{d-1}} - 1 - \dfrac{1}{d-1}\right)n\log n + \right.\\
-    +\left.\left(\dfrac{c_5}{(d-1)A^{d-1}} + 1 + \dfrac{1}{d-1}\right)dn\log a + n\log \lambda + O(n)\right).
+    +\left.\left(\dfrac{c_5}{(d-1)A^{d-1}} + 1 + \dfrac{1}{d-1}\right)dn\log a + n\log \lambda + o(n\log n) \right).
 \end{multline*}{}
 Здесь использовалось следующее равенство:
 
@@ -359,9 +359,17 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 Так как константа $A$ может быть выбрана сколь угодно большой, получаем:
 \begin{equation*}
     \PP[K_a \geq n] \leq 
-     \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a + n\log \lambda + O(n) \right).
+     \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a + n\log \lambda + o(n\log n) \right).
 \end{equation*}{}
 \end{proof}{}
+
+\section{Связь с задачей постоянного размера куба}
+\subsection{Нижние оценки}
+Следующая теорема показывает, как получить нижнюю оценку для случая константного радиуса из такой же оценки для задачи с $a=1$.
+\input{Lower_bounds}
+
+\subsection{Верхние оценки}
+\input{Upper_bounds}
 
 
 %\begin{thm}
