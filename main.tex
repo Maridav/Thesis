@@ -151,7 +151,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 Рассмотрим случай, когда радиусы -- это константа $r>0$ п.н. 
 
 \begin{thm}
-Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$, и $n \gg a^d\lambda$. 
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$, $n \gg a^d\lambda$, и $n\gg a^d$. 
 Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
@@ -171,7 +171,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
         = \dfrac{c_1a^{d/(d-1)}}{r(rn)^{1/(d-1)}}\cdot\left(\dfrac{a}{4} + r\right) + \dfrac{a}{2}
         < a
     \end{equation*}{}
-    при достаточно больших $a$ и $n$.
+    при достаточно больших $a$ и $n$ в силу того, что $n \gg a^d$.
     
     Заметим, что если центры шаров $B(\xi_i, r)$, $B(\xi_j, r)$ лежат в разных ``рядах'', то есть $\xi_i^{(d)}$ и $\xi_j^{(d)}$ лежат в разных выбранных нами интервалах, то эти шары не пересекаются, так как расстояние между ``рядами'' хотя бы $2r$. Если же центры лежат в одном ``ряду'', то в каждом из шаров есть точка, не покрытая другим шаром. Действительно, рассмотрим точку  $x_i = \xi_i + (0, \ldots, 0, r)$. Заметим, что для достаточно больших $n$ и $a$ эта точка действительно лежит в кубе $[0, a]^d$. Итак, при $j \not= i$
     \begin{multline*}
@@ -182,7 +182,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     \end{multline*}{}
     
     
-    Мы построили порядка $8rn/a \cdot a/4r = 2n$ непересекающихся ячеек, поэтому можно выбрать $n$ из них. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+    Мы построили порядка $8rn/a \cdot a/4r = 2n$ непересекающихся ячеек, поэтому можно выбрать $n$ из них. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcap\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
                          
     Заметим, что событие $E$ влечет событие $\{K \geq n\}$ в силу свойств выбранных ячеек, показанных выше.
   
@@ -195,7 +195,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 \end{proof}{}
 
 \begin{thm}
-Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$, и $n \gg a^d\lambda$. 
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$,  $n \gg a^d\lambda$, и $n\gg a^d$. 
 Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
@@ -215,7 +215,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
         =\dfrac{c_2a^{2+ 2/(d-1)}}{r^2(rn)^{2/(d-1)}}\cdot\left(\dfrac{a}{4} + r\right) + \dfrac{a}{2} 
         < a
     \end{equation*}{}
-    при достаточно больших $a$ и $n$.
+    при достаточно больших $a$ и $n$ в силу того, что $n \gg a^d$.
     
     Заметим, что если центры шаров $B(\xi_i, r)$, $B(\xi_j, r)$ лежат в разных ``рядах'', то есть $\xi_i^{(d)}$ и $\xi_j^{(d)}$ лежат в разных выбранных нами интервалах, то эти шары не пересекаются, так как расстояние между ``рядами'' хотя бы $2r$. Если же центры лежат в одном ``ряду'', то в каждом из шаров есть точка, не покрытая другим шаром. Действительно, рассмотрим точку  $x_i = \xi_i + (0, \ldots, 0, r)$. Заметим, что для достаточно больших $n$ и $a$ эта точка действительно лежит в кубе $[0, a]^d$. Итак, при $j \not= i$
         \begin{multline*}
@@ -226,7 +226,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     \end{multline*}{}
     
     
-    Мы построили порядка $8rn/a \cdot a/4r = 2n$ непересекающихся ячеек, поэтому можно выбрать $n$ из них. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
+    Мы построили порядка $8rn/a \cdot a/4r = 2n$ непересекающихся ячеек, поэтому можно выбрать $n$ из них. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие $$E = \{N=n\}\cap \bigcap\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, i = 1, \ldots, n\}.$$
                          
     Заметим, что событие $E$ влечет событие $\{K \geq n\}$ в силу свойств выбранных ячеек, показанных выше.
   
@@ -255,15 +255,16 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 %\end{proof}{}
 
 \subsection{Радиус с плотностью}
+Утверждение следующей теоремы верно для произвольной нормы в $\R^d$.
 
 \begin{thm}
-Пусть распределение $R_1$ имеет плотность $p$ относительно меры Лебега, причем $p(z) \geq c z^{\alpha -1}$ для малых $z$ и некоторых $c, \alpha >0$, $d \geq 1$, и $n \gg a^d\lambda$.
+Пусть распределение $R_1$ имеет плотность $p$ относительно меры Лебега, причем $p(z) \geq c z^{\alpha -1}$ для малых $z$ и некоторых $c, \alpha >0$. Предположим, что $d \geq 1$, и $n \gg a^d\lambda$.
 Тогда $$\PP[K_a \geq n] \geq \exp\left(-\left(1 + \alpha/d\right)n\log n + (1 + \alpha/d)dn\log a + n\log \lambda + O(n)\right), \ n, a \to \infty.$$
 \end{thm}{}
 
-\begin{rem}
-Утверждение теоремы верно для произвольной нормы в $\R^d$.
-\end{rem}{}
+
+
+
 
 \begin{proof}
 Рассмотрим набор ячеек:
@@ -274,15 +275,15 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 
 Мы построили порядка $2n$ непересекающихся ячеек, поэтому можно выбрать $n$ из них. Назовем их $V_1, \ldots, V_n$  и рассмотрим событие 
 \begin{equation*}
-    E = \{N=n\}\cap \bigcup\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, R_i \in [c_1an^{-1/d}, c_2an^{-1/d}],  i = 1, \ldots, n\},
+    E = \{N=n\}\cap \bigcap\limits_{\pi \text{ -- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, R_i \in [c_1an^{-1/d}, c_2an^{-1/d}],  i = 1, \ldots, n\},
 \end{equation*}
-где $c_2 > c_1> 0$ -- некоторые константы, которые могут зависеть от нормы и размерности, причем $c_2$ выбирается так, чтобы для $i\not=j$ шары $B(\xi_i, R_i), B(\xi_j, R_j)$ не пересекались. В этом случае событие $E$ влечет $[K_a \geq n]$.
+где $c_2 > c_1> 0$ -- некоторые константы, которые могут зависеть от нормы и размерности, причем $c_2$ выбирается так, чтобы для $i\not=j$ шары $B(\xi_i, R_i)$ и $B(\xi_j, R_j)$ не пересекались. В этом случае событие $E$ влечет $\{K_a \geq n\}$.
 
 Следовательно, 
 \begin{multline*}
-    \PP[K \geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n! \cdot \left(\dfrac{1}{a^d}\left(\dfrac{1/2 a}{(2n)^{1/d}}\right)^d\cdot \int_{c_1an^{-1/d}}^{c_2an^{-1/d}} p(z) dz\right)^n \geq \\
-    \geq (a^d\lambda)^n e^{-a^d\lambda} \cdot \left(\dfrac{1}{a^d}\left(\dfrac{1/2 a}{(2n)^{1/d}}\right)^d\cdot c \int_{c_1an^{-1/d}}^{c_2an^{-1/d}} z^{\alpha - 1} dz\right)^n = \\
-    = (a^d\lambda)^n e^{-a^d\lambda} \cdot \left(\dfrac{1}{a^d}\left(\dfrac{1/2 a}{(2n)^{1/d}}\right)^d\cdot c (c_2^\alpha - c_1^\alpha)/\alpha \cdot a^\alpha n^{-\alpha/d}\right)^n = \\
+    \PP[K \geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n! \cdot \left(\dfrac{1}{a^d}\left(\dfrac{1/2 \cdot a}{(2n)^{1/d}}\right)^d\cdot \int_{c_1an^{-1/d}}^{c_2an^{-1/d}} p(z) dz\right)^n \geq \\
+    \geq (a^d\lambda)^n e^{-a^d\lambda} \cdot \left(\left(\dfrac{1/2 }{(2n)^{1/d}}\right)^d\cdot c \int_{c_1an^{-1/d}}^{c_2an^{-1/d}} z^{\alpha - 1} dz\right)^n = \\
+    = (a^d\lambda)^n e^{-a^d\lambda} \cdot \left(\left(\dfrac{1/2 }{(2n)^{1/d}}\right)^d\cdot c (c_2^\alpha - c_1^\alpha)/\alpha \cdot a^\alpha n^{-\alpha/d}\right)^n = \\
     = \exp\left(-(1 + \alpha/d)n\log n + (1 + \alpha/d)dn\log a + n\log\lambda + O(n)\right).
 \end{multline*}{}
 \end{proof}{}
@@ -290,8 +291,8 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 \section{Верхние оценки для вероятности больших уклонений}
 
 \begin{thm}
-Пусть $R_1\equiv r$ п.н., где $r>0$, шары берутся в $l_1$-норме, и $d\geq 2$. 
-Тогда $$\PP[K_a \geq n] \leq \exp \left(\left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)n\log a^d \right)(1 + o(1))\right), n, a\to \infty.$$
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$,  $n \gg a^d\lambda$, и $n\gg a^d$. 
+Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + O(n)\right), n, a\to \infty.$$
 \end{thm}{}
 
 
@@ -304,7 +305,7 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 \|\nu_j - \nu_i\| + \|\Delta_i\| \leq \|\nu_j - \nu_i\| + r/2.$$
 То есть $\|\nu_j-\nu_i\|> r/2$, а значит, $\#J_0 \leq  c_1r^{-d}a^d$, где константа $c_1~=~2^d/\vol_d B(0,1).$
 
-Теперь пусть $i\not\in J_0$. Значит, $$\|\Delta_i\|_\infty \geq c_2\|\Delta_i\|_1 > c_2r/2,$$ где $c_2$ -- контанта, зависящаятолько от нормы. Поэтому $i$ принадлежит одному из $2d$ множеств вида: $$J_m^+ := \{i\colon \Delta_i^{(m)} > c_2r/2\}, \quad J_m^- := \{i\colon \Delta_i^{(m)} < - c_2r/2\}.$$
+Теперь пусть $i\not\in J_0$. Значит, $$\|\Delta_i\|_\infty \geq c_2\|\Delta_i\|_1 > c_2r/2.$$ Поэтому $i$ принадлежит одному из $2d$ множеств вида: $$J_m^+ := \{i\colon \Delta_i^{(m)} > c_2r/2\}, \quad J_m^- := \{i\colon \Delta_i^{(m)} < - c_2r/2\}, \quad 1\leq m\leq d.$$
 
 {\it Шаг 2. Оценка расстояний между центрами.} Пусть $\sigma \colon \R^d \to \R^d$ -- проекция, определенная таким образом: $$\sigma x := (x^{(1)}, \ldots x^{(d-1)}, 0).$$ 
 
@@ -318,18 +319,18 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 
 Зафиксируем некоторый индекс $\bar k$ и оценим количество ячеек, содержащих центры шаров: $$N(\bar k, d, +):= \#\{k\colon \xi_i\in V_{\bar k, k} \text{ для некоторого } i\in J_d^+\}.$$
 
-Заметим, что если $\xi_i\in V_{\bar k, \kappa_i}$ и $\xi_j\in V_{\bar k, \kappa_j}$ для некоторых $i, j\in J_d^+$, то $$\|\sigma\xi_i - \sigma\xi_j\|_1~\leq~(d-1)A(a^dn^{-1})^{1/(d-1)}.$$ 
-Поэтому по лемме $$|\xi_i^{(d)} - \xi_j^{(d)}| \not\in [(d-1)A(a^dn^{-1})^{1/(d-1)}, c_3].$$
+Заметим, что если $\xi_i\in V_{\bar k, \kappa_i}$ и $\xi_j\in V_{\bar k, \kappa_j}$ для некоторых $i, j\in J_d^+$, то $$\|\sigma\xi_i - \sigma\xi_j\|_1~\leq~(d-1)A(na^{-d})^{-1/(d-1)}.$$ 
+Поэтому по лемме $$|\xi_i^{(d)} - \xi_j^{(d)}| \not\in [(d-1)A(na^{-d})^{-1/(d-1)}, c_3].$$
 
 {\it {\bf Замечание.} При достаточно больших $a, n$ этот интервал корректно определен.}
 
-Исходя из этого, разобъем $[0,a]$ на $\lceil c_3^{-1}\rceil$ частей длины не более $c_3$, и заметим, что если $\xi_i^{(d)}, \xi_j^{(d)}$ лежат в одной части, то $|\xi_i^{(d)} - \xi_j^{(d)}| \leq (d-1)A(a^dn^{-1})^{1/(d-1)}$. Поэтому тогда $|\kappa_i - \kappa_j|\leq ad$. Отсюда получаем искомую оценку: $$N(\bar k, d, +)\leq ad \lceil c_3^{-1}\rceil =: ac_4.$$
+Исходя из этого, разобъем $[0,a]$ на $a\lceil c_3^{-1}\rceil$ частей длины не более $c_3$, и заметим, что если $\xi_i^{(d)}, \xi_j^{(d)}$ лежат в одной части, то $|\xi_i^{(d)} - \xi_j^{(d)}| \leq (d-1)A(na^{-d})^{-1/(d-1)}$. Поэтому тогда $|\kappa_i - \kappa_j|\leq d$. Отсюда получаем искомую оценку: $$N(\bar k, d, +)\leq ad \lceil c_3^{-1}\rceil =: ac_4.$$
 
 Теперь мы можем получить общее число ячеек, содержащих центры: $$\sum_{\bar k}\sum_{m=1}^d (N(\bar k, m, +) + N(\bar k, m, -))\leq (2d)\cdot(ac_4)\cdot (na^{-1}A^{-(d-1)}) =: \dfrac{c_5 n}{A^{d-1}}.$$
 
-Пусть $\mathcal{U}$ -- семейство всех возможных объединений из $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек. Их количество -- число способов выбрать $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек из $\left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil$. Поэтому можно выписать следующую простую оценку: \begin{multline*}
+Пусть $\mathcal{U}$ -- семейство всех возможных объединений из $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек. Их количество -- число способов выбрать $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек из $\left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)}A^d}\right\rceil$. Поэтому можно выписать следующую простую оценку: \begin{multline*}
     \#\mathcal{U}\leq \exp \left(\dfrac{c_5 n}{A^{d-1}} \log \left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil \right) = \\
-    =\exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right).
+    =\exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + O(n)\right).
 \end{multline*}{}
 
 Для каждого $U\in \mathcal{U}$ объем можно оценить так: $$\vol_d (U)\leq \dfrac{c_5n}{A^{d-1}}\left(\dfrac{Aa^{d/(d-1)}}{n^{1/(d-1)}}\right)^d = \dfrac{Ac_5a^{d^2/(d-1)}}{n^{1/(d-1)}}.$$
@@ -343,9 +344,9 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 \begin{multline*}
     \PP[K_a\geq n] \leq \PP[K^{(\pm)} \geq n-c_6a^d] \leq \sum_{U\in\mathcal{U}}\PP[N_U \geq n-c_6a^d] \leq
     \#\mathcal{U}\cdot\max_{U\in\mathcal{U}}\PP[N_U\geq n- c_6a^d] \leq \\
-    \leq  \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right) \left(\dfrac{\lambda\vol_d(U)e}{n-c_6a^d}\right)^{n-c_6a^d} \leq \\
+    \leq  \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + O(n)\right) \left(\dfrac{\lambda\vol_d(U)e}{n-c_6a^d}\right)^{n-c_6a^d} \leq \\
     \leq 
-    \exp \left(\left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}n\log a^d\right)(1+o(1))\right)\cdot\\
+    \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + O(n)\right)\cdot\\
     \cdot\left(\dfrac{\lambda Ac_5a^{d^2/(d-1)}en^{-1/(d-1)}}{n-c_6a^d}\right)^{n-c_6a^d} = \\
     = \exp\left(\left(\dfrac{c_5d}{(d-1)A^{d-1}} - 1 - \dfrac{1}{d-1}\right)n\log n + \right.\\
     +\left.\left(\dfrac{c_5}{(d-1)A^{d-1}} + 1 + \dfrac{1}{d-1}\right)dn\log a + n\log \lambda + O(n)\right).
@@ -355,7 +356,6 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 \begin{equation*}
     n\log (n - c_6a^d) = n\log (n - c_6a^d) - n\log n + n\log n = n\log (1 - c_6a^d/n) + n\log n = n\log n + o(n).
 \end{equation*}{}
-
 Так как константа $A$ может быть выбрана сколь угодно большой, получаем:
 \begin{equation*}
     \PP[K_a \geq n] \leq 

@@ -56,14 +56,14 @@
 \begin{document}
 
 \begin{thm}
-Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$ и $n \gg a^d\lambda$. 
+Пусть $R_1\equiv r > 0$ п.н., $d\geq 2$, $n \gg a^d\lambda$, и $n\gg a^d$. 
 Предположим, что 
 \begin{equation*}
-    \PP[K_1 \geq n] \geq \exp \left(-\beta\cdot n\log n + n\log\lambda + O(n)\right),\  n \to \infty.
-\end{equation*}{}
+    \PP[K_1 \geq n] \geq \exp \left(-\beta\cdot n\log n + \gamma\cdot n\log\lambda + O(n)\right),\  n \to \infty.
+ \end{equation*}{}
 Тогда 
 \begin{equation*}
-    \PP[K_a \geq n] \geq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n)\right),\  n, a \to \infty.
+    \PP[K_a \geq n] \geq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + O(n)\right),\  n, a \to \infty.
 \end{equation*}{}
 \end{thm}
 
@@ -76,45 +76,39 @@
 
 Заметим, что для точек $x$ и $y$, лежащих в разных ячейках, $\min_{1\leq m\leq d} |x^{(m)} - y^{(m)}| \geq 2r$, поэтому шары с центрами в разных ячейках не пересекаются. 
 
-Также заметим, что длина стороны ячейки удовлетворяет следующей оценке:
-\begin{equation*}
-    \dfrac{a - 2rh}{h+1} \geq \dfrac{a - 2r\cdot \frac{a-1}{2r+1}}{\frac{a-1}{2r+1} + 1} = 1.
-\end{equation*}{}
-
 Мы построили ячейки $V_1, \ldots, V_l$, где $l = (h+1)^d$. Назовём минимальным числом видимых шаров в ячейке $V_j$ следующую величину:
 \begin{equation*}
     K^j = \min\{s\ |\ \exists i_1, \ldots i_s \in \{1, \ldots N\} \colon S \cap V_j = \bigcup_{t = 1}^s B(\xi_{i_t}, R_1)\cap V_j \}.
 \end{equation*}{}
-Введем еще одно обозначение: $U = [0,a]^d \setminus (\bigcup_{j=1}^l V_j)$.
-
+Обозначим $V = \bigcup_{j=1}^l V_j$. 
 Определим следующее событие:
 \begin{equation*}
-    E = \{\xi_i \not\in U \text{ для } i = 1, \ldots, N\} \cap \bigcup_{j = 1}^l\{K^j \geq n/(h+1)^d\}.
+    E = \{\xi_i \in V \text{ для } i = 1, \ldots, N\} \cap \bigcap_{j = 1}^l\{K^j \geq n/(h+1)^d\}.
 \end{equation*}{}
-Заметим, что для различных $j$ события $\{K^j \geq n/(h+1)^d\}$ независимы.
+Заметим, что для различных $j$ события $\{K^j \geq n/(h+1)^d\ |\ \xi_i \in V \text{ для } i = 1, \ldots, N\}$ независимы.
 
 Докажем, что событие $E$ влечет событие $\{K_a \geq n\}$. Действительно, если все центры лежат в наших ячейках, то шары с центрами в разных ячейках не пересекаются. Тогда если в каждой ячейке минимальное число видимых шаров хотя бы $n/(h+1)^d$, то минимальное число видимых шаров во всей картинке удовлетворяет неравенству:
 \begin{equation*}
     K_a \geq l\cdot n/(h+1)^d = (h+1)^d \cdot n/(h+1)^d  = n.
 \end{equation*}{}
 
-Вычислим вероятности искомых событий:
+Так как количество центров шаров в $[0, a]^d \setminus V$ -- пуассоновская случайная величина с параметром $\lambda\vol_d([0, a]^d\setminus V)$, можно выписать следующую оценку:
 \begin{equation*}
-    \PP\{\xi_i \not\in U \text{ для } i = 1, \ldots, N\} =\exp(-\lambda\cdot\vol_d(U)) \geq \exp(-\lambda\cdot (2ra^{d-1}) \cdot dh) \geq \exp(-\lambda\cdot da^d).
+    \PP\{\xi_i \in V \text{ для } i = 1, \ldots, N\} = \exp(-\lambda\cdot\vol_d([0,a]^d\setminus V)) \geq \exp(-\lambda\cdot (2ra^{d-1}) \cdot dh) \geq \exp(-\lambda\cdot da^d).
 \end{equation*}{}
 
-Заметим, что так как сторона ячеек хотя бы 1, то выполнено неравенство:
+Заметим, что при условии, что центры шаров лежат только в выбранных ячейках, события $\{K^j\geq n/(h+1)^d\}$ -- это с точностью до гомотетии то же самое, что событие $\{\til K_1 \geq n/(h+1)^d\}$, где $\til K_1$ -- минимальное необходимое количество шаров для задачи в единичном кубе с постоянными радиусами $\til R_1 = R_1\cdot \left(\dfrac{a-2rh}{h+1}\right)^{-1}$ и интенсивностью $\til\lambda = \lambda\cdot\left(\dfrac{a-2rh}{h+1}\right)$. Таким образом,  
 \begin{multline*}
-    \PP\{K^j \geq n/(h+1)^d\} \geq 
-    \PP\{K_1 \geq n/(h+1)^d\} \geq\\ 
-    \geq \exp \left(-\beta\cdot n/(h+1)^d\log (n/(h+1)^d) + n/(h+1)^d\log\lambda + O(n/(h+1)^d)\right) \geq\\
-    \geq \exp \left(-\beta\cdot n/(h+1)^d(\log n - d\log a) + n/(h+1)^d\log\lambda + O(n/(h+1)^d)\right).
+    \PP\{K^j \geq n/(h+1)^d\ | \ \xi_i \in V \text{ для } i = 1, \ldots, N\} =
+    \PP\{\til K_1 \geq n/(h+1)^d\} \geq\\ 
+    \geq \exp \left(-\beta\cdot n/(h+1)^d\log (n/(h+1)^d) + \gamma\cdot n/(h+1)^d\log\til\lambda + O(n/(h+1)^d)\right) \geq\\
+    \geq \exp \left(-\beta\cdot n/(h+1)^d(\log n - d\log a) + \gamma\cdot n/(h+1)^d\log\lambda + O(n/(h+1)^d)\right).
 \end{multline*}{}
 
 Собирая все вместе, получаем 
 \begin{multline*}
-    \PP\{K_a \geq n\} \geq \exp \left(-d\lambda a^d-\beta\cdot n(\log n - d\log a) + n\log\lambda + O(n)\right) = \\
-    \exp \left(-\beta\cdot n\log n - \beta\cdot dn\log a + n\log\lambda + O(n)\right).
+    \PP\{K_a \geq n\} \geq \exp \left(-\lambda da^d-\beta\cdot n(\log n - d\log a) + \gamma\cdot n\log\lambda + O(n)\right) = \\
+    \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + O(n)\right).
 \end{multline*}{}
 \end{proof}{}
 
