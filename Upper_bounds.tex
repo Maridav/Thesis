@@ -18,7 +18,7 @@
 \theoremstyle{definition}
 \newtheorem*{defn}{Определение}
 \newtheorem*{ex}{Упр}
-\newtheorem*{cor}{Следствие}
+\newtheorem{cor}{Следствие}
 \newtheorem*{name}{Обозначение}
 
 \theoremstyle{remark}
@@ -54,13 +54,14 @@
 
 
 \begin{document}
-Следующая теорема верна для любого распределения радиусов и для любой нормы. 
+Следующая теорема верна для любой нормы. 
 \begin{thm}
 Пусть $d\geq 2$,  $n \gg a^d\lambda$ и $n \gg a^d$. 
-Предположим, что 
+Предположим, что неравенство 
 \begin{equation*}
-    \PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + n\log\lambda + O(n)\right),\  n \to \infty.
+    \PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + n\log\lambda + O(n)\right),\  n \to \infty
 \end{equation*}{}
+верно радиусов $R_1$ с некоторым распределением и для радиусов $\til R_1 = R_1(\lfloor a\rfloor/a)$ одновременно.
 Тогда 
 \begin{equation*}
     \PP[K_a \geq n] \leq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n)\right),\  n, a \to \infty.
@@ -88,7 +89,7 @@
 Заметим, что из события $\{K_a \geq n\}$ следует событие $E$. Действительно, если $K_a \geq n$, то и $\sum K^s \geq n$. Тогда существует набор $\{n_1, \ldots n_l\}$ с $n_s \geq 0\ \forall s$ и $\sum n_s = n$, для которого выполнено $K^s \geq n_s$ для всех $s = 1, \ldots l$. Это и есть событие $E$.
 
 Вычислим вероятность события $\{K^s \geq n_s\}$. 
-С точностью до гомотетии это то же самое, что $\til K_1 \geq n_s$, где $\til K_1$ обозначает минимальное число видимых шаров в кубе $[0, 1]^d$, рассматриваемое раньше, но с интенсивностью пуассоновского поля $\til\lambda = \lambda (a/\lfloor a\rfloor)^d$. 
+С точностью до гомотетии это то же самое, что $\til K_1 \geq n_s$, где $\til K_1$ обозначает минимальное число видимых шаров в кубе $[0, 1]^d$, рассматриваемое раньше, но с интенсивностью пуассоновского поля $\til\lambda = \lambda (a/\lfloor a\rfloor)^d$ и радиусами $\til R_1 = R_1(\lfloor a\rfloor/a)$. 
 
 Заметим также, что события $\{K^s \geq n_s\}$ независимы для различных $s$.\\
 Таким образом,
@@ -117,7 +118,15 @@
 \end{equation*}{}
 \end{proof}{}
 
+\begin{cor}
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$, $n \gg a^d\lambda$, и $n\gg a^d$. 
+Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  +n\log\lambda + O(n)\right),\  n, a\to \infty.$$
+\end{cor}{}
 
+\begin{cor}
+Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$, $n \gg a^d\lambda$, и $n\gg a^d$. 
+Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  +n\log\lambda + O(n)\right),\  n, a\to \infty.$$
+\end{cor}{}
 
 
 \end{document}
