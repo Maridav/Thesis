@@ -1,0 +1,33 @@
+\section{Поведение $K_a$ при малых $\lambda$}
+
+В этом разделе речь пойдет о случае, когда  $a^d\lambda~\to~0$ при $a\to\infty$.
+
+\begin{thm}
+Пусть $\lambda = \lambda(a)$ таково, что $a^d\lambda^2 \to 0$ при $a\to\infty$, и случайная величина $R_1$ имеет $d$-й момент, $d\geq 1$. Тогда $\PP[K_a < N] \to 0$ при $a\to\infty$.
+\end{thm}
+
+\begin{proof}
+Рассмотрим событие $$E =\bigcup_{i\in \{1, \ldots N\}} \bigcup_{\substack{j\in\{1, \ldots, N\}\colon\\ j \not= i}}\{\xi_i\in B(\xi_j, R_j)\}.$$
+Так как центры шаров распределены равномерно в $[0, a]^d$ и величины $R_i$ независимы и одинаково распределены, выполнено равенство:
+\begin{equation*}
+    \PP[\xi_i\in B(\xi_j, R_j)] = \dfrac{1}{a^d}\E \vol_d B(\xi_j, R_j) = \dfrac{1}{a^d}\E \vol_d B(0, R_1) = \dfrac{c}{a^d}
+\end{equation*}
+в силу того, что у $R_1$ существует $d$-й момент.
+
+Заметим, что если $K_a < N$, то событие $E$ выполняется, так как есть шар, лежащий в объединении других шаров. Поэтому 
+\begin{multline*}
+    \PP[K_a < N]\leq
+    \PP[E] =
+    \sum_{k=0}^\infty \PP[E|N = k]\PP[N = k] \leq\\
+    \leq \sum_{k=0}^\infty \left(\sum_{1 \leq k}\sum_{\substack{1\leq j\leq k\colon\\ j\not= i}} \PP[\xi_i\in B(\xi_j, R_j)] \right)\PP[N = k] = 
+    \sum_{k=0}^\infty k(k-1) \cdot\dfrac{c}{a^d}\cdot\dfrac{(a^d\lambda)^k}{k!}e^{-a^d\lambda} = \\
+    = \dfrac{c}{a^d}(a^d\lambda)^2 = 
+    ca^d\lambda^2 \to 0, \ a\to\infty.
+\end{multline*}
+\end{proof}
+
+\begin{cor}
+Если последовательность $a^d\lambda$ ограничена и случайная величина $R_1$ имеет $d$-й момент, то $\PP[K_a < N] \to 0, \ a \to\infty$.
+\end{cor}
+
+Так как в данном случае величина $K_a$ асимптотически ведет себя как $N$, при оценке вероятности больших уклонений мы не будем рассматривать случай $\lambda \to 0$ при $a\to \infty$.

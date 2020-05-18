@@ -131,7 +131,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 Условие $n\gg a^d\lambda$ гарантирует, что вероятность больших уклонений стремится к нулю, так как $-n\log(n/a^d\lambda)$ стремится к минус бесконечности с ростом $n$ и $a$. 
 
 \subsection{Полученные результаты}
-Получены ({\it пока что :)} ) более точные оценки вероятности больших уклонений для $\ell_1$- и $\ell_2$-нормы. А именно, что существует число $\beta >1$, для которого $$\PP[K_a \geq n] = \exp((-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n))), \ n\to \infty, a \to\infty.$$
+Получены более точные оценки вероятности больших уклонений для случаев постоянного радиуса и для радиусов с плотностью $p(z) \approx z^{\alpha -1}$ для $z\to 0$. Запись $p(z) \approx q(z), z\to 0$ обозначает, что $p(z)/q(z)$ ограничено вне любой окрестности нуля и бесконечно для достаточно малых $z$. Показано, что существует число $\beta >1$, для которого $$\PP[K_a \geq n] = \exp((-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n))), \ n\to \infty, a \to\infty.$$
 Число $\beta$ зависит от размерности $d$, используемой нормы и распределения радиусов $R_i$.
 
 
@@ -143,6 +143,8 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 %Тогда наша случайная картинка определяется как $$\til{S_a} = \cuplim_{i=1}^N B(\til{\xi_i}, \til{R_i}) \cap [0,1]^d,$$ а минимальное число видимых шаров: $$K_a = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , \til{N}\} : \til{S_a} = \cuplim_{l=1}^r B(\til{\xi_{i_l}}, \til{R_{i_l}}) \cap [0,1]^d\}.$$
 %
 %Задача оценки остается такой же.
+
+\input{lambdatozero}
 
 \section{Нижние оценки для вероятности больших уклонений}
 
@@ -196,7 +198,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 
 \begin{thm}\label{lowconst2}
 Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$,  $n \gg a^d\lambda$, и $n\gg a^d$. 
-Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  + O(n)\right),\  n, a\to \infty.$$
+Тогда $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  +n\log\lambda + O(n)\right),\  n, a\to \infty.$$
 \end{thm}{}
 
 Доказательство теоремы аналогично случаю $\ell_1$-нормы, и отличается только размером ячеек.
@@ -258,7 +260,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 Утверждение следующей теоремы верно для произвольной нормы в $\R^d$.
 
 \begin{thm}\label{lowdens}
-Пусть распределение $R_1$ имеет плотность $p$ относительно меры Лебега, причем $p(z) \geq c z^{\alpha -1}$ для малых $z$ и некоторых $c, \alpha >0$. Предположим, что $d \geq 1$, и $n \gg a^d\lambda$.
+Пусть распределение $R_1$ имеет плотность $p$ относительно меры Лебега, причем $p(z) \geq c z^{\alpha -1}$ для малых $z$ и некоторых $c, \alpha >0$. Предположим, что $d \geq 1$ и $n \gg a^d\lambda$.
 Тогда $$\PP[K_a \geq n] \geq \exp\left(-\left(1 + \alpha/d\right)n\log n + (1 + \alpha/d)dn\log a + n\log \lambda + O(n)\right), \ n, a \to \infty.$$
 \end{thm}{}
 
@@ -292,7 +294,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 
 \begin{thm}\label{uppconst1}
 Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$,  $n \gg a^d\lambda$, и $n\gg a^d$. 
-Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + o(n\log n)\right), n, a\to \infty.$$
+Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1 + \dfrac{1}{d-1}\right)dn\log a  + n\log\lambda + O(n)\right), n, a\to \infty.$$
 \end{thm}{}
 
 
@@ -330,7 +332,7 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 
 Пусть $\mathcal{U}$ -- семейство всех возможных объединений из $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек. Их количество -- число способов выбрать $\left\lfloor \dfrac{c_5 n}{A^{d-1}}\right\rfloor$ ячеек из $\left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)}A^d}\right\rceil$. Поэтому можно выписать следующую простую оценку: \begin{multline*}
     \#\mathcal{U}\leq \exp \left(\dfrac{c_5 n}{A^{d-1}} \log \left\lceil \dfrac{n^{d/(d-1)}}{a^{d/(d-1)A^d}}\right\rceil \right) = \\
-    =\exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + O(n)\right).
+    =\exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + o(n)\right).
 \end{multline*}{}
 
 Для каждого $U\in \mathcal{U}$ объем можно оценить так: $$\vol_d (U)\leq \dfrac{c_5n}{A^{d-1}}\left(\dfrac{Aa^{d/(d-1)}}{n^{1/(d-1)}}\right)^d = \dfrac{Ac_5a^{d^2/(d-1)}}{n^{1/(d-1)}}.$$
@@ -344,32 +346,72 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 \begin{multline*}
     \PP[K_a\geq n] \leq \PP[K^{(\pm)} \geq n-c_6a^d] \leq \sum_{U\in\mathcal{U}}\PP[N_U \geq n-c_6a^d] \leq
     \#\mathcal{U}\cdot\max_{U\in\mathcal{U}}\PP[N_U\geq n- c_6a^d] \leq \\
-    \leq  \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + o(n\log n)\right) \left(\dfrac{\lambda\vol_d(U)e}{n-c_6a^d}\right)^{n-c_6a^d} \leq \\
+    \leq  \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + o(n)\right) \left(\dfrac{\lambda\vol_d(U)e}{n-c_6a^d}\right)^{n-c_6a^d} \leq \\
     \leq 
-    \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + o(n\log n)\right)\cdot\\
-    \cdot\left(\dfrac{\lambda Ac_5a^{d^2/(d-1)}en^{-1/(d-1)}}{n-c_6a^d}\right)^{n-c_6a^d} = \\
-    = \exp\left(\left(\dfrac{c_5d}{(d-1)A^{d-1}} - 1 - \dfrac{1}{d-1}\right)n\log n + \right.\\
-    +\left.\left(\dfrac{c_5}{(d-1)A^{d-1}} + 1 + \dfrac{1}{d-1}\right)dn\log a + n\log \lambda + o(n\log n) \right).
-\end{multline*}{}
-Здесь использовалось следующее равенство:
+    \exp \left(\dfrac{c_5d}{(d-1)A^{d-1}}n\log n + \dfrac{c_5}{(d-1)A^{d-1}}dn\log a + o(n)\right)\cdot\\
+    \cdot\left(\dfrac{\lambda Ac_5a^{d^2/(d-1)}en^{-1/(d-1)}}{n-c_6a^d}\right)^{n-c_6a^d}
+\end{multline*}
 
-\begin{equation*}
-    n\log (n - c_6a^d) = n\log (n - c_6a^d) - n\log n + n\log n = n\log (1 - c_6a^d/n) + n\log n = n\log n + o(n).
-\end{equation*}{}
+Распишем отдельно последнюю скобку:
+\begin{multline*}
+    \left(\dfrac{\lambda Ac_5a^{d^2/(d-1)}en^{-1/(d-1)}}{n-c_6a^d}\right)^{n-c_6a^d} = \\
+    = \exp\left(n\log\lambda + d^2/(d-1)n\log a - 1/(d-1)n\log n - n\log(n-c_6a^d) -\right.\\
+    \left.- c_6a^d\log\lambda - c_6a^dd^2/(d-1)\log a + c_6a^d/(d-1)\log n + c_6a^d\log (n-c_6a^d) + O(n)\right).
+\end{multline*}
+
+Заметим, что $\log (n - c_6a^d) = \log n + o(1).$\\ Слагаемое $c_6a^d\log\lambda = o(n)$, и $- c_6a^dd^2/(d-1)\log a - c_6a^d(1+1/(d-1))\log n < 0$.
+
+Итак,
+\begin{multline*}
+    \PP[K_a\geq n]\leq
+     \exp\left(\left(\dfrac{c_5d}{(d-1)A^{d-1}} - 1 - \dfrac{1}{d-1}\right)n\log n + \right.\\
+    +\left.\left(\dfrac{c_5}{(d-1)A^{d-1}} + 1 + \dfrac{1}{d-1}\right)dn\log a + n\log \lambda + O(n) \right).
+\end{multline*}{}
+
+
+
+
+
 Так как константа $A$ может быть выбрана сколь угодно большой, получаем:
 \begin{equation*}
     \PP[K_a \geq n] \leq 
-     \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a + n\log \lambda + o(n\log n) \right).
+     \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a + n\log \lambda + O(n) \right).
 \end{equation*}{}
 \end{proof}{}
 
 \section{Связь с задачей постоянного размера куба}
+
+В этом разделе мы покажем, как получить оценки вероятности больших уклонений с параметром $a\to \infty$ из соответствующих оценок для случая  $a=1$. 
+
 \subsection{Нижние оценки}
-Следующая теорема показывает, как получить нижнюю оценку для случая константного радиуса из такой же оценки для задачи с $a=1$.
+Утверждение следующей теоремы выполнено для произвольной нормы.
 \input{Lower_bounds}
 
 \subsection{Верхние оценки}
 \input{Upper_bounds}
+
+\section{Вероятность больших уклонений в одномерном случае}
+
+Доказательства дальнейших оценок основаны на следующей лемме.
+
+\begin{lm}
+
+\end{lm}
+
+\begin{thm}
+Пусть $d=1$. Предположим, что распределение $R_1$ имеет плотность $p(z)\approx z^{\alpha-1}$ для $z\to 0$ и некоторого $\alpha > 0$. Тогда 
+\begin{equation*}
+    \PP[K_a\geq n] = \exp(-(1+\alpha)n\log n + (1+\alpha)dn\log a + n\log\lambda +O(n)), n,a \to\infty.
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Нижняя оценка доказана в теореме \ref{lowdens}. Для получения верхней оценки посмотрим на доказательство theorem 1 в \cite{AL}. Из него видно, что есть оценка
+\begin{equation*}
+    \PP[K_1 \geq n] \leq (-(1+\alpha)n\log n + n\log\lambda + O(n)), n\to\infty.
+\end{equation*}
+Применяя теорему \ref{uppgen}, получаем требуемое.
+\end{proof}
 
 
 %\begin{thm}
