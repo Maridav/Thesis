@@ -1,15 +1,15 @@
 
 Следующая теорема верна для любой нормы. 
-\begin{thm}
-Пусть $d\geq 2$,  $n \gg a^d\lambda$ и $n \gg a^d$. 
+\begin{thm}\label{uppgen}
+Пусть $d\geq 1$,  $n \gg a^d\lambda$ и $n \gg a^d$. 
 Предположим, что неравенство 
 \begin{equation*}
-    \PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + \gamma\cdot n\log\lambda + o(n\log n)\right),\  n \to \infty
+    \PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + \gamma\cdot n\log\lambda + O(n)\right),\  n \to \infty
 \end{equation*}{}
-верно радиусов $R_1$ с некоторым распределением и для радиусов $\til R_1 = R_1(\lfloor a\rfloor/a)$ одновременно.
+верно для радиусов $R_1$ с некоторым распределением и для радиусов $\til R_1 = R_1\cdot b$ одновременно для любых $b\in (0, 1]$.
 Тогда 
 \begin{equation*}
-    \PP[K_a \geq n] \leq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + o(n\log n)\right),\  n, a \to \infty.
+    \PP[K_a \geq n] \leq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + O(n)\right),\  n, a \to \infty.
 \end{equation*}{}
 \end{thm}
 
@@ -43,14 +43,14 @@
     \PP[E] \leq 
     \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\prod_{s=1}^l\PP[K^s\geq n_s] =
     \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\prod_{s=1}^l\PP[\til K_1\geq n_s]\leq \\
-    \leq \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\prod_{s=1}^l \exp(-\beta\cdot n_s\log n_s + \gamma\cdot n_s\log\til\lambda + o(n_S\log n_s)) =\\
-    =\sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot \sum_{s=1}^l n_s\log n_s + \gamma\cdot n\log\til\lambda + \sum_{s=1}^l o(n_s\log n_s)\right).
+    \leq \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\prod_{s=1}^l \exp(-\beta\cdot n_s\log n_s + \gamma\cdot n_s\log\til\lambda + O(n_s) =\\
+    =\sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot \sum_{s=1}^l n_s\log n_s + \gamma\cdot n\log\til\lambda + \sum_{s=1}^l O(n_s)\right).
     \end{multline*}
-Нетрудно убедиться, что минимум выражения $\sum_{s=1}^l n_s\log n_s$ достигается на наборе $\{n/l, \ldots, n/l\}$. Также заметим, что $n\log\til\lambda = n\log\lambda + o(n\log n)$ и $\sum_{s=1}^lo(n_s\log n_s) = o(n\log n))$. Получим, что
+Нетрудно убедиться, что минимум выражения $\sum_{s=1}^l n_s\log n_s$ достигается на наборе $\{n/l, \ldots, n/l\}$. Также заметим, что $n\log\til\lambda = n\log\lambda + o(n)$ и $\sum_{s=1}^lO(n_s) = O(n))$. Получим, что
     \begin{multline*}
     \PP[K_a\geq n]\leq
-    \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot \sum_{s=1}^l \dfrac{n}{l}\log\dfrac{n}{l} + \gamma\cdot n\log\lambda + o(n\log n)\right) = \\
-    =\sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + o(n\log n)\right).
+    \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot \sum_{s=1}^l \dfrac{n}{l}\log\dfrac{n}{l} + \gamma\cdot n\log\lambda + O(n)\right) = \\
+    =\sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + O(n)\right).
     \end{multline*}
 Посчитаем количество способов разбиения числа $n$ на $\lfloor a\rfloor^d$ неотрицательных слагаемых:
 \begin{equation*}
@@ -59,33 +59,33 @@
 Объединяя все полученные неравенства, получаем, что 
 \begin{equation*}
     \PP[K_a\geq n]\leq
-    \exp\left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + o(n\log n) \right).
+    \exp\left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + O(n) \right).
 \end{equation*}{}
 \end{proof}{}
 
 \begin{cor}[теорема \ref{uppconst1}]
 Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_1$-норме, $d\geq 2$, $n \gg a^d\lambda$, и $n\gg a^d$. 
-Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  +n\log\lambda + o(n\log n)\right),\  n, a\to \infty.$$
+Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  +n\log\lambda + O(n)\right),\  n, a\to \infty.$$
 \end{cor}{}
 
 \begin{proof}
     Эта оценка следует из proposition 19 в \cite{AL}. Из доказательства этого утверждения видно, что есть оценка 
-    $$\PP[K_1 \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + o(n\log n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
+    $$\PP [K_1 \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
 
 \begin{cor}
 Пусть $R_1\equiv r > 0$ п.н., где шары берутся в $\ell_2$-норме, $d\geq 2$, $n \gg a^d\lambda$, и $n\gg a^d$. 
-Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  +n\log\lambda + o(n\log n)\right),\  n, a\to \infty.$$
+Тогда $$\PP[K_a \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  +n\log\lambda + O(n)\right),\  n, a\to \infty.$$
 \end{cor}{}
 
 \begin{proof}
     Эта оценка следует из proposition 21 в \cite{AL}. Из доказательства этого утверждения видно, что есть оценка 
-    $$\PP[K_1 \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + o(n\log n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
+    $$\PP[K_1 \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
 
 \begin{cor}
 Пусть распределение $R_1$ таково, что $\sup_{x>0}\PP[R_1\in [x, x+r]]\leq cr^\alpha$ для некоторых $c>0$, $\alpha\in(0, 1]$ и всех $r>0$. Предположим, что $d \geq 1$, $n\gg a^d$ и $n \gg a^d\lambda$.
-Тогда $$\PP[K_a \geq n] \geq \exp\left(-\left(1 + \alpha/d\right)n\log n + (1 + \alpha/d)dn\log a + n\log \lambda + o(n\log n)\right), \ n, a \to \infty.$$
+Тогда $$\PP[K_a \geq n] \geq \exp\left(-\left(1 + \alpha/d\right)n\log n + (1 + \alpha/d)dn\log a + n\log \lambda + O(n)\right), \ n, a \to \infty.$$
 \end{cor}{}
 
 \begin{proof}
