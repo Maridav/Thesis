@@ -58,7 +58,8 @@
 \end{cor}{}
 
 \begin{proof}
-    Эта оценка следует из proposition 10 в \cite{AL}. Из доказательства этого утверждения видно, что есть оценка 
+    Эта оценка следует из proposition 10 в \cite{AL}. При доказательстве этого утверждения получена следующая оценка (см. неравенство (3)):
+    $$\PP[K_1 \geq n] \geq \lambda^n e^{-\lambda}\left(\left(\dfrac{1/2}{(2n)^{1/(d-1)}}\right)^{d-1}\cdot c_2n^{-1/(d-1)}\right)^n$$ для некоторой константы $c_2 = c_2(d)$. Из этого неравенства получаем, что
     $$\PP[K_1 \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
 
@@ -68,8 +69,9 @@
 \end{cor}{}
 
 \begin{proof}
-    Эта оценка следует из proposition 9 в \cite{AL}. Из доказательства этого утверждения видно, что есть оценка 
-    $$\PP[K_1 \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
+    Эта оценка следует из proposition 9 в \cite{AL}. При доказательстве этого утверждения получена следующая оценка:
+    $$\PP[K_1 \geq n] \geq \lambda^n e^{-\lambda}\left(\left(\dfrac{1/2}{(2n)^{1/(d-1)}}\right)^{d-1}\cdot c_1n^{-2/(d-1)}\right)^n$$ для некоторой константы $c_1 = c_1(d)$. Из этого неравенства получаем, что 
+    $$\PP[K_1 \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$  Применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
 
 \begin{cor}
@@ -78,8 +80,31 @@
 \end{cor}{}
 
 \begin{proof}
-    Эта оценка следует из proposition 11 в \cite{AL}. Из доказательства этого утверждения видно, что есть оценка 
+    Эта оценка следует из proposition 11 в \cite{AL}. При доказательстве этого утверждения получена следующая оценка:
+    $$\PP[K_1 \geq n] \geq \lambda^n e^{-\lambda}\left(c_2 n^{-1/(d-1)}\right)^{dn}$$ для некоторой константы $c_2 = c_2(d)$. Из этого неравенства получаем, что
     $$\PP[K_1 \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
+
+\begin{cor}
+Пусть $R_1\in [0, 1]$ имеет ограниченную плотность. Тогда 
+\begin{itemize}
+    \item для шаров в $\ell_1$-норме выполнено
+    $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + \left(1+\dfrac{1}{d-1}\right)dn\log a  +n\log\lambda + O(n)\right),\  n, a\to \infty;$$
+    \item для шаров в $\ell_2$-норме выполнено
+    $$\PP[K_a \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n + \left(1+\dfrac{2}{d-1}\right)dn\log a  +n\log\lambda + O(n)\right),\  n, a\to \infty.$$
+\end{itemize}
+\end{cor}
+
+\begin{proof}
+Эта оценка следует из proposition 13 в \cite{AL}. При доказательстве этого утверждения получена следующая оценка (см. неравенство (10)):
+\begin{itemize}
+    \item для $\ell_1$-нормы 
+    $$\PP[K_1\geq n] \geq \left(\dfrac{\lambda}{2^{d+5}c}\right)^ne^{-\lambda}n^{-n}(\varepsilon_n/2)^n,$$ где $\varepsilon_n = (2n)^{-1/(d-1)}/2,$ а константа $c = \esssup_{x\in[0,1]} p(x) \leq c < \infty.$ Из этого неравенства получаем, что
+    $$\PP[K_1 \geq n] \geq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n + n\log\lambda + O(n)\right),\  n\to \infty;$$
+    \item для $\ell_2$-нормы  $$\PP[K_1\geq n] \geq \left(\dfrac{\lambda}{2^{d+5}c}\right)^ne^{-\lambda}n^{-n}(\varepsilon_n^2/3)^n,$$ где $\varepsilon_n = (2n)^{-1/(d-1)}/2,$ а константа $c = \esssup_{x\in[0,1]} p(x) \leq c < \infty.$ Из этого неравенства получаем, что
+    $$\PP[K_1 \geq n] \geq \exp \left(-\left(1+\dfrac{2}{d-1}\right)n\log n +  n\log\lambda + O(n)\right),\  n\to \infty.$$
+\end{itemize}
+Применяя доказанную выше теорему, получаем требуемое.
+\end{proof}
 
 

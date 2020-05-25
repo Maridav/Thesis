@@ -69,7 +69,8 @@
 \end{cor}{}
 
 \begin{proof}
-    Эта оценка следует из proposition 19 в \cite{AL}. Из доказательства этого утверждения видно, что есть оценка 
+    Эта оценка следует из proposition 19 в \cite{AL}. При доказательстве этого утверждения получена следующая оценка:
+    $$\PP[K_1 \geq n] \leq \exp\left(\dfrac{c_5 dn}{A^{d-1}(d-1)}\log n(1 + o(1))\right)\left(\dfrac{(\lambda Ac_5e)n^{-1/(d-1)}}{n-c_6}\right)^{n-c_6}$$ для некоторых констант $c_5 = c_5(d), c_6 = c_6(d)$ и произвольного числа $A>0$. Из этого неравенства получаем, в силу произвольности выбора $A$, что
     $$\PP [K_1 \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
 
@@ -79,15 +80,15 @@
 \end{cor}{}
 
 \begin{proof}
-    Эта оценка следует из proposition 21 в \cite{AL}. Из доказательства этого утверждения видно, что есть оценка 
+    Эта оценка следует из proposition 21 в \cite{AL}. При доказательстве этого утверждения аналогично случаю $$\PP[K_1 \geq n] \leq \exp\left(\dfrac{c_5 dn}{A^{d-1}(d-1)}\log n(1 + o(1))\right)\left(\dfrac{(\lambda Ac_5e)n^{-1/(d-1)}}{n-c_6}\right)^{n-c_6}$$ для некоторых констант $c_5 = c_5(d), c_6 = c_6(d)$ и произвольного числа $A>0$. Из этого неравенства получаем, что
     $$\PP[K_1 \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
 
-\begin{cor}
-Пусть распределение $R_1$ таково, что $\sup_{x>0}\PP[R_1\in [x, x+r]]\leq cr^\alpha$ для некоторых $c>0$, $\alpha\in(0, 1]$ и всех $r>0$. Предположим, что $d \geq 1$, $n\gg a^d$ и $n \gg a^d\lambda$.
-Тогда $$\PP[K_a \geq n] \geq \exp\left(-\left(1 + \alpha/d\right)n\log n + (1 + \alpha/d)dn\log a + n\log \lambda + O(n)\right), \ n, a \to \infty.$$
-\end{cor}{}
+%\begin{cor}
+%Пусть распределение $R_1$ таково, что $\sup_{x>0}\PP[R_1\in [x, x+r]]\leq cr^\alpha$ для некоторых $c>0$, $\alpha\in(0, 1]$ и всех $r>0$. Предположим, что $d \geq 1$, $n\gg a^d$ и $n \gg a^d\lambda$.
+%Тогда $$\PP[K_a \geq n] \geq \exp\left(-\left(1 + \alpha/d\right)n\log n + (1 + \alpha/d)dn\log a + n\log \lambda + O(n)\right), \ n, a \to \infty.$$
+%\end{cor}{}
 
-\begin{proof}
-    Написать доказательство!!! Для этого надо вытащить лямбду из предложения 18 из статьи.
-\end{proof}
+%\begin{proof}
+%    Написать доказательство!!! Для этого надо вытащить лямбду из предложения 18 из статьи.
+%\end{proof}
