@@ -77,7 +77,8 @@
 \begin{center}
     Уровень образования:\\
 Направление 01.03.01 «Математика»\\
-Основная образовательная программаШифр «Нагшенование»
+Основная образовательная программа бакалавриат «Математика» \\
+Шифр СВ.5000.2016
 \end{center}
 
 \vspace{3cm}
@@ -90,8 +91,8 @@
 \vspace{1.3cm}
 {\parindent=9.2cm 
 	Рецензент: \par
-	пипваап \par
-	впровро \par}
+	д.ф.-м.н. профессор \par
+	Белопольская Яна Исаевна \par}
 
 \vspace{3cm}
 \begin{center}
@@ -125,7 +126,7 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
 Определенная таким образом картинка называется {\it Булевой моделью случайного множества}.
 Заметим, что свойства $S_a$ будут зависеть от рассматриваемой нормы.
 
- В работе \cite{AL} исследовался случай $a=1$ с постоянной интенсивностью $\lambda$. Результаты   основаны на изучении вероятностей  больших уклонений величины  $$K_1 = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_1 = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}) \cap [0,a]^d\},$$
+ В работе \cite{AL} исследовался случай $a=1$ с постоянной интенсивностью $\lambda$. Результаты   основаны на изучении вероятностей  больших уклонений величины  $$K_a = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_a = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}) \cap [0,a]^d\},$$
 называемой {\it минимальным числом видимых шаров}, то есть на нахождении асимптотики $\PP[K_1 \geq n]$ при $n$, стремящемся к бесконечности. 
 
 В настоящей работе некоторые из этих оценок распространяются на случай, когда параметр $a$ стремится к бесконечности, причем $n \gg a^d\lambda$.
@@ -147,10 +148,10 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     если $n\gg a^d\lambda$ и $n\gg a^d$.
     Число $\beta > 1$ зависит от размерности и нормы, в которой рассматриваются шары.
     \item Для радиусов с плотностью $p(z) \approx z^{\alpha -1}$ для $z\to 0$ получена оценка $$\PP[K_a \geq n] = \exp((-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n))), \ n\to \infty, a \to\infty,$$
-    если $n\gg a^d\lambda$ и $n\gg a^d$. Запись $p(z) \approx q(z), z\to 0$ обозначает, что $p(z)/q(z)$ ограничено вне любой окрестности нуля и бесконечно для достаточно малых $z$. Как и в предыдущем случае, $\beta > 1$ зависит от размерности и нормы, в которой рассматриваются шары.
+    если $n\gg a^d\lambda$ и $n\gg a^d$. Запись $p(z) \approx q(z), z\to 0$ обозначает, что отношение  $p(z)/q(z)$ ограничено вне любой окрестности нуля и стремится к бесконечности при $z\to 0$. Как и в предыдущем случае, $\beta > 1$ зависит от размерности и нормы, в которой рассматриваются шары.
 \end{itemize}
 
-Во второй главе изучены вероятности больших уклонений $K_a$ в том особом случае, когда $n \gg a^d\lambda$, но неверно, что $n\gg a^d$. А именно, показано, что если $a^d\lambda^2 \to 0$ при $a\to\infty$, то $K_a \sim N$ при $a\to \infty$.
+Во второй главе изучены вероятности больших уклонений $K_a$ в том особом случае, когда $n \gg a^d\lambda$, но неверно, что $n\gg a^d$. А именно, показано, что, при некоторых условиях на распределние радиусов, если $a^d\lambda^2 \to 0$ при $a\to\infty$, то $K_a \sim N$ при $a\to \infty$.
 В третьей и далее главах предполагается, что  $n \gg a^d\lambda$ и $n\gg a^d$.
 
 В главах 3 и 4 приведены оценки вероятностей больших уклонений $K_a$ для некоторых распределений радиусов. 
@@ -308,7 +309,6 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     E = \{N=n\}\cap \bigcap\limits_{\pi \text{ --- перестановка } \{1, \ldots, n\}} \{\xi_i \in V_{\pi(i)}, R_i \in [c_1an^{-1/d}, c_2an^{-1/d}],  i = 1, \ldots, n\},
 \end{equation*}
 где $c_2 > c_1> 0$ --- некоторые константы, которые могут зависеть от нормы и размерности, причем $c_2$ выбирается так, чтобы для $i\not=j$ шары $B(\xi_i, R_i)$ и $B(\xi_j, R_j)$ не пересекались. В этом случае событие $E$ влечет $\{K_a \geq n\}$.
-
 Следовательно, 
 \begin{multline*}
     \PP[K \geq n] \geq \PP[E] = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda}\cdot n! \cdot \left(\dfrac{1}{a^d}\left(\dfrac{1/2 \cdot a}{(2n)^{1/d}}\right)^d\cdot \int_{c_1an^{-1/d}}^{c_2an^{-1/d}} p(z) dz\right)^n \geq \\
@@ -339,7 +339,7 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 
 {\it Шаг 2. Оценка расстояний между центрами.} Пусть $\sigma \colon \R^d \to \R^d$ --- проекция, определенная таким образом: $$\sigma x := (x^{(1)}, \ldots x^{(d-1)}, 0).$$ 
 
-\begin{lm}[см. \cite{AL}, Lemma 20]
+\begin{lm}[см. \cite{AL}, Лемма 20]
 Пусть $i, j\in J_d^+, \ i\not= j$, и пусть $c_3 := c_2 r/2.$ Тогда $$|\xi_i^{(d)} - \xi_j^{(d)}| \not\in [\|\sigma\xi_i - \sigma\xi_j\|_1, c_3].$$
 \end{lm}{}
 
@@ -407,12 +407,12 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 \end{equation*}{}
 \end{proof}{}
 
-\section{Связь с задачей постоянного размера куба}
+\section{Связь с задачей для куба постоянного размера}
 
 В этом разделе мы покажем, как получить оценки вероятности больших уклонений с параметром $a\to \infty$ из соответствующих оценок для случая  $a=1$. 
 
 \subsection{Нижние оценки}
-Утверждение следующей теоремы выполнено для произвольной нормы.
+Утверждение следующей теоремы выполнено для произвольной $\ell_p$-нормы, $1 \leq p \leq \infty$.
 \input{Lower_bounds}
 
 \subsection{Верхние оценки}
@@ -422,22 +422,22 @@ $$r < \|\nu_j - \xi_i\| \leq \|\nu_j - \nu_i\| + \|\nu_i - \xi_i\| \leq
 
 Доказательства дальнейших оценок основаны на следующей лемме.
 
-\begin{lm}[см. \cite{AL}, Lemma 23]\label{1dimlemma}
+\begin{lm}[см. \cite{AL}, Лемма 23]\label{1dimlemma}
  Пусть $$S_1 = \bigcup_{i=1}^K [x_i-r_i, x_i+r_i] \cap [0,1]$$ является неуменьшаемым представлением одномерной картинки $S_1$. Тогда $$\sum_{i=1}^K \min \{r_i, 1\} \leq 2.$$
 \end{lm}
 
 \begin{thm}
 Пусть $d=1$. Предположим, что распределение $R_1$ имеет плотность $p(z)\approx z^{\alpha-1}$ для $z\to 0$ и некоторого $\alpha > 0$. Пусть $n\gg a, n\gg a\lambda$. Тогда 
 \begin{equation*}
-    \PP[K_a\geq n] = \exp(-(1+\alpha)n\log n + (1+\alpha)dn\log a + n\log\lambda +O(n)), n,a \to\infty.
+    \PP[K_a\geq n] = \exp(-(1+\alpha)n\log n + (1+\alpha)n\log a + n\log\lambda +O(n)), n,a \to\infty.
 \end{equation*}
 \end{thm}
 
 \begin{proof}
 Нижняя оценка доказана в теореме \ref{lowdens}. Для получения верхней оценки зафиксируем большое число $M>0$ и разобьем число $K_a$ на следующие слагаемые:
-$$K_a = \#\{i\colon r_i > 2aM/n\} + \#\{i\colon r_i \leq 2aM/n\} = K_a^+ + K_a^-.$$
+$$K_a = \#\{i\colon R_i > 2aM/n\} + \#\{i\colon R_i \leq 2aM/n\} = K_a^+ + K_a^-.$$
 
-С помощью гомотетии переведем отрезок $[0,a]$ в $[0,1]$. Теперь радиусы шаров будут равны $\til{r_i} = r_i/a$, и будет выполнена лемма \ref{1dimlemma} для новой картинки. Так как количество шаров при гомотетии не изменилось, получим, что $K_a^+ \leq n/M$ при $n\geq 2M$. Заметим, что $K_a^+ \leq N^-$, где $N^-$ --- количество шаров радиуса не больше $2aM/n$ в первоначальном представлении картинки $S_a$. Случайная величина $N^-$ имеет распределение Пуассона с параметром $\Lambda = a\lambda \int_0^{2aM/n}p(z) \leq ca\lambda(aM/n)^\alpha$.
+С помощью гомотетии переведем отрезок $[0,a]$ в $[0,1]$. Теперь радиусы шаров будут равны $\til{R_i} = R_i/a$, и будет выполнена лемма \ref{1dimlemma} для новой картинки. Так как количество шаров при гомотетии не изменилось, получим, что $K_a^+ \leq n/M$ при $n\geq 2M$. Заметим, что $K_a^+ \leq N^-$, где $N^-$ --- количество шаров радиуса не больше $2aM/n$ в первоначальном представлении картинки $S_a$. Случайная величина $N^-$ имеет распределение Пуассона с параметром $\Lambda = a\lambda \int_0^{2aM/n}p(z)dz \leq ca\lambda(aM/n)^\alpha$.
 
 Следовательно, 
 \begin{multline*}
@@ -488,7 +488,7 @@ F.~Aurzada, S.~Dereich, M.~Scheutzow, C.~Vormoor, High resolution quantization a
 Complexity 25 (2) (2009) 163–187.\\
 
 \bibitem{AL}
-F.~Aurzada, M.~Lifshits, How complex is a random picture? Journal of Complexity 53 (2019) 133–161.\\
+F.~Aurzada, M.~Lifshits, How complex is a random picture? J. Complexity 53 (2019) 133–161.\\
 
 \bibitem{CSKM}
  S.N.~Chiu, D.~Stoyan, W.S.~Kendall, J.~Mecke, Stochastic Geometry and its Applications, Wiley Series in Probability and
@@ -499,11 +499,11 @@ T.M.~Cover, J.A.~Thomas, Elements of Information Theory, second ed., Wiley-Inter
 NJ, 2006, p. xxiv+748.\\
 
 \bibitem{Der}
-S.~Dereich, The coding complexity of diffusion processes under supremum norm distortion, Stochastic Process. Appl. 118
+S.~Dereich, The coding complexity of diffusion processes under supremum norm distortion, Stoch. Proc. Appl. 118
 (6) (2008) 917–937.\\
 
 \bibitem{GL}
-S.~Graf, H.~Luschgy, Foundations of Quantization for Probability Distributions, Lecture Notes in Mathematics, vol. 1730,
+S.~Graf, H.~Luschgy, Foundations of Quantization for Probability Distributions, Lecture Notes Math., vol. 1730,
 Springer-Verlag, Berlin, 2000, p. x+230.\\
 
 
@@ -514,7 +514,7 @@ A.N.~Kolmogorov, Three approaches to the quantitative definition of information,
 
 
 \bibitem{SW}
-R.~Schneider, W.~Weil, Stochastic and Integral Geometry, Probability and its Applications (New York), Springer-Verlag,
+R.~Schneider, W.~Weil, Stochastic and Integral Geometry, Probability and its Applications, Springer-Verlag,
 Berlin, 2008, p. xii+693.
 }
 \end{thebibliography}

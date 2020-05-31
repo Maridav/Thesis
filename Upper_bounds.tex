@@ -1,12 +1,20 @@
 
-Следующая теорема верна для любой нормы. 
+ Для числа $b \in (0, 1)$ введем дополнительные обозначения для картинки с уменьшенными радиусами шаров: 
+\begin{equation*}
+    S_1^{(b)} = \bigcup_{i=1}^N B(\xi_i, R_i\cdot b) \cap [0,1]^d,
+\end{equation*}
+\begin{equation*}
+    K_1^{(b)} = \min \{r \geq 1 | \exists i_1, \ldots , i_r \subset \{1, \ldots , N\} : S_1^{(b)} = \cuplim_{l=1}^r B(\xi_{i_l}, R_{i_l}\cdot b) \cap [0,1]^d\}.
+\end{equation*}
+Следующая теорема верна для любой нормы.
+
 \begin{thm}\label{uppgen}
 Пусть $d\geq 1$,  $n \gg a^d\lambda$ и $n \gg a^d$. 
-Предположим, что неравенство 
-\begin{equation*}
-    \PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + \gamma\cdot n\log\lambda + O(n)\right),\  n \to \infty
-\end{equation*}{}
-верно для радиусов $R_1$ с некоторым распределением и для радиусов $\til R_1 = R_1\cdot b$ одновременно для любых $b\in (0, 1]$.
+Предположим, что для любого числа $b \in (0, 1)$ верно следующее:
+$$\PP[K_1^{(b)} \geq n] =\PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + \gamma\cdot n\log\lambda + O(n)\right),\  n \to \infty.$$
+    
+
+
 Тогда 
 \begin{equation*}
     \PP[K_a \geq n] \leq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + O(n)\right),\  n, a \to \infty.
@@ -47,6 +55,7 @@
     =\sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot \sum_{s=1}^l n_s\log n_s + \gamma\cdot n\log\til\lambda + \sum_{s=1}^l O(n_s)\right).
     \end{multline*}
 Нетрудно убедиться, что минимум выражения $\sum_{s=1}^l n_s\log n_s$ достигается на наборе $\{n/l, \ldots, n/l\}$. Также заметим, что $n\log\til\lambda = n\log\lambda + o(n)$ и $\sum_{s=1}^lO(n_s) = O(n))$. Получим, что
+
     \begin{multline*}
     \PP[K_a\geq n]\leq
     \sum_{\substack{\{n_1, \ldots n_l\}\colon\\ n_s \geq 0\ \forall s,\\ \sum n_s = n}}\exp\left(-\beta\cdot \sum_{s=1}^l \dfrac{n}{l}\log\dfrac{n}{l} + \gamma\cdot n\log\lambda + O(n)\right) = \\
@@ -69,7 +78,7 @@
 \end{cor}{}
 
 \begin{proof}
-    Эта оценка следует из proposition 19 в \cite{AL}. При доказательстве этого утверждения получена следующая оценка:
+    Эта оценка следует из предложения 19 в \cite{AL}. При доказательстве этого утверждения получена следующая оценка:
     $$\PP[K_1 \geq n] \leq \exp\left(\dfrac{c_5 dn}{A^{d-1}(d-1)}\log n(1 + o(1))\right)\left(\dfrac{(\lambda Ac_5e)n^{-1/(d-1)}}{n-c_6}\right)^{n-c_6}$$ для некоторых констант $c_5 = c_5(d), c_6 = c_6(d)$ и произвольного числа $A>0$. Из этого неравенства получаем, в силу произвольности выбора $A$, что
     $$\PP [K_1 \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
@@ -80,7 +89,7 @@
 \end{cor}{}
 
 \begin{proof}
-    Эта оценка следует из proposition 21 в \cite{AL}. При доказательстве этого утверждения аналогично случаю $$\PP[K_1 \geq n] \leq \exp\left(\dfrac{c_5 dn}{A^{d-1}(d-1)}\log n(1 + o(1))\right)\left(\dfrac{(\lambda Ac_5e)n^{-1/(d-1)}}{n-c_6}\right)^{n-c_6}$$ для некоторых констант $c_5 = c_5(d), c_6 = c_6(d)$ и произвольного числа $A>0$. Из этого неравенства получаем, что
+    Эта оценка следует из предложения 21 в \cite{AL}. При доказательстве этого утверждения аналогично случаю $$\PP[K_1 \geq n] \leq \exp\left(\dfrac{c_5 dn}{A^{d-1}(d-1)}\log n(1 + o(1))\right)\left(\dfrac{(\lambda Ac_5e)n^{-1/(d-1)}}{n-c_6}\right)^{n-c_6}$$ для некоторых констант $c_5 = c_5(d), c_6 = c_6(d)$ и произвольного числа $A>0$. Из этого неравенства получаем, что
     $$\PP[K_1 \geq n] \leq \exp \left(-\left(1+\dfrac{1}{d-1}\right)n\log n   +n\log\lambda + O(n)\right),\  n \to \infty.$$ Применяя доказанную выше теорему, получаем требуемое.
 \end{proof}{}
 
