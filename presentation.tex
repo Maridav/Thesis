@@ -31,6 +31,8 @@
 \usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage{graphicx}
+%\usepackage[usenames]{color}
+
 \DeclareMathOperator{\diag}{diag}
 \newtheorem{hypothesis}{Conjecture}
 \renewcommand{\proofname}{Доказательство}
@@ -178,6 +180,9 @@
 
 \begin{frame}{Булева модель}
 
+В данной задаче в качестве случайного элемента пространства компактов с метрикой Хаусдорфа выступает {\it Булева модель случайного множества}.
+\medskip
+
 Рассмотрим куб $[0,a]^d$ в $\R^d$ и  случайный набор шаров: 
 \begin{itemize}
     \item центры шаров $\xi_i \sim \mathcal{U}[0, a]^d$;
@@ -250,24 +255,24 @@ $$\PP[K_1 \geq n] = \exp(-\beta\cdot n\log n\cdot (1 + o(1))), \quad n\to\infty.
 
 
 
-\begin{frame}{Полученные результаты: многомерный случай}
+\begin{frame}{Полученные результаты}
 Рассмотрим случай $d \geq 2$.
 \begin{thm}
 Пусть $n\gg a^d\lambda, n\gg a^d$. Тогда
 \begin{itemize}
     \item если распределение $R_1$ имеет плотность $p(z)\approx z^{\alpha-1}$ для $z\to 0$ и некоторого $\alpha > 0$:
     \begin{equation*}
-    \PP[K_a\geq n] = \exp(-(1+\alpha/d)\cdot n\log n + (1+\alpha/d) \cdot dn\log a 
+    \PP[K_a\geq n] = \exp(-\textcolor{red}{(1+\alpha/d)}\cdot n\log n + \textcolor{red}{(1+\alpha/d)} \cdot dn\log a 
     +n\log\lambda +O(n)),\quad 
     n,a \to\infty.
 \end{equation*}
 \item если $R_1\equiv r>0$ п.н.:
 \begin{equation*}
-    \PP[K_a\geq n] = \exp(-\beta \cdot n\log n + \beta\cdot dn\log a 
+    \PP[K_a\geq n] = \exp(-\textcolor{red}{\beta} \cdot n\log n + \textcolor{red}{\beta}\cdot dn\log a 
     +n\log\lambda +O(n)),\quad 
     n,a \to\infty.
 \end{equation*}
-для достаточно больших  $n$ и $a$.
+
 \end{itemize}
 \end{thm}
 
@@ -278,8 +283,15 @@ $$\PP[K_1 \geq n] = \exp(-\beta\cdot n\log n\cdot (1 + o(1))), \quad n\to\infty.
 
 {\it Первый подход:} для некоторых распределений были найдены события $E_1$ и $E_2$:
 $$\PP[E_1] \leq \PP[K_a \geq n] \leq \PP[E_2].$$
-Пример:
+{\it Пример:}
+\begin{center}
+ \includegraphics[scale = 0.3]{pic2.png}   
+\end{center}
 
+
+
+\end{frame}
+\begin{frame}{Два подхода к решению задачи}
 
 {\it Второй подход:} сведение к задаче для куба постоянного размера. Были доказаны теоремы, позволяющие получить из оценок для случая $a=1$ оценки для параметра $a$, стремящегося к бесконечности.
     
@@ -294,28 +306,28 @@ $$\PP[E_1] \leq \PP[K_a \geq n] \leq \PP[E_2].$$
     \PP[K_1 \geq n] \geq \exp \left(-\beta\cdot n\log n + \gamma\cdot n\log\lambda + O(n)\right),\  n \to \infty.
  \end{equation*}{}
 Тогда 
-\begin{multline*}
-    \PP[K_a \geq n] \geq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + O(n)\right),\\  n, a \to \infty.
-\end{multline*}{}
+\begin{equation*}
+    \PP[K_a \geq n] \geq \exp \left(-\beta\cdot n\log n + \textcolor{red}{\beta\cdot dn\log a} + \gamma\cdot n\log\lambda + O(n)\right),\quad  n, a \to \infty.
+\end{equation*}{}
 \end{thm}
     
 \end{frame}
 
 \begin{frame}{Сведение к задаче для куба постоянного размера}
 
-\begin{thm}
+\begin{thm}[Верхняя оценка]
     Пусть $d\geq 1$,  $n \gg a^d\lambda$ и $n \gg a^d$. Обозначим через $K_a^{(b)}$ минимальное число видимых шаров в картинке с радиусами, увеличенными в $b$ раз.
 Предположим, что для любого числа $b \in (0, 1)$ верно следующее:
-\begin{multline*}
-    \PP[K_1^{(b)} \geq n] =\PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + \gamma\cdot n\log\lambda + O(n)\right),\\  n \to \infty.
-\end{multline*}
+\begin{equation*}
+    \PP[K_1^{(b)} \geq n] =\PP[K_1 \geq n] \leq \exp \left(-\beta\cdot n\log n + \gamma\cdot n\log\lambda + O(n)\right),\quad  n \to \infty.
+\end{equation*}
     
 
 
 Тогда 
-\begin{multline*}
-    \PP[K_a \geq n] \leq \exp \left(-\beta\cdot n\log n + \beta\cdot dn\log a + \gamma\cdot n\log\lambda + O(n)\right),\\  n, a \to \infty.
-\end{multline*}{}
+\begin{equation*}
+    \PP[K_a \geq n] \leq \exp \left(-\beta\cdot n\log n + \textcolor{red}{\beta\cdot dn\log a} + \gamma\cdot n\log\lambda + O(n)\right),\quad  n, a \to \infty.
+\end{equation*}{}
 \end{thm}
     
 \end{frame}
