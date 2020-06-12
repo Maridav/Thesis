@@ -137,18 +137,18 @@ $$S_a = \cuplim_{i=1}^N B(\xi_i, R_i) \cap [0,a]^d.$$
     \PP[K_a \geq n] \leq \PP[N\geq n] \sim \PP[N = n] =\\
     = \dfrac{(a^d\lambda)^n}{n!}e^{-a^d\lambda} \sim \left(\dfrac{ea^d\lambda}{n}\right)^ne^{-a^d\lambda}\sqrt{2\pi n} = 
     \exp(-n\log n + n\log (a^d\lambda) + O(n) ) = \\
-    =\exp((-n\log n + dn\log a + n\log\lambda + 
-    O(n))), \ n\to \infty, a \to\infty.
+    =\exp(-n\log n + dn\log a + n\log\lambda + 
+    O(n)), \ n\to \infty, a \to\infty.
 \end{multline*}{}
 Условие $n\gg a^d\lambda$ гарантирует, что вероятность больших уклонений стремится к нулю, так как $-n\log(n/a^d\lambda)$ стремится к минус бесконечности с ростом $n$ и $a$. 
 
 \subsection{Полученные результаты}
 В данной работе получены более точные оценки вероятности больших уклонений для некоторых распределений $R_1$:
 \begin{itemize}
-    \item Для $R_1 \equiv const$ п.н. получена оценка $$\PP[K_a \geq n] = \exp((-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n))), \ n\to \infty, a \to\infty,$$
+    \item Для $R_1 \equiv const$ п.н. получена оценка $$\PP[K_a \geq n] = \exp(-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n)), \ n\to \infty, a \to\infty,$$
     если $n\gg a^d\lambda$ и $n\gg a^d$.
     Число $\beta > 1$ зависит от размерности и нормы, в которой рассматриваются шары.
-    \item Для радиусов с плотностью $p(z) \approx z^{\alpha -1}$ для $z\to 0$ получена оценка $$\PP[K_a \geq n] = \exp((-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n))), \ n\to \infty, a \to\infty,$$
+    \item Для радиусов с плотностью $p(z) \approx z^{\alpha -1}$ для $z\to 0$ получена оценка $$\PP[K_a \geq n] = \exp(-\beta\cdot n\log n + \beta\cdot dn\log a + n\log\lambda + O(n)), \ n\to \infty, a \to\infty,$$
     если $n\gg a^d\lambda$ и $n\gg a^d$. Запись $p(z) \approx q(z), z\to 0$ обозначает, что отношение  $p(z)/q(z)$ ограничено вне любой окрестности нуля и стремится к бесконечности при $z\to 0$. Как и в предыдущем случае, $\beta > 1$ зависит от размерности и нормы, в которой рассматриваются шары.
 \end{itemize}
 
